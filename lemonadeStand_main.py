@@ -1,27 +1,22 @@
 import shop_function as shopF
-import tkinter as tk
 import random as ran
 
-root = tk.Tk()
-root.title('Lemonade Stand')                  #screen / ui
-root.geometry('700x500')
+inventory = {"money": 100,
+             "ice" : 0,
+             "lemons" : 0,
+             "sugar" : 0}
 
-money = 100
-ice = 0
-lemons = 0
-sugar = 0
+while inventory["money"] > 0:       #game loop, each repitition is a day
+    list = shopF.purchasing(inventory["money"],[inventory["ice"],inventory["lemons"],inventory["sugar"]])   #daily purchasing
 
-while money > 0:
-    list = shopF.purchasing(money,[ice,lemons,sugar])   #daily purchasing
+    inventory["money"] = list[0]
+    inventory["ice"] = list[1][0]
+    inventory["lemons"] = list[1][1]
+    inventory["sugar"] = list[1][2]
 
-    money = list[0]
-    ice = list[1][0]
-    lemons = list[1][1]
-    sugar = list[1][2]
+    inventory["money"] += ran.randint(0,5)   #replace when we get customer code
 
-    money += ran.randint(0,5)   #replace when we code customers
-
-    print('Money:',money)
-    print('Ice:',ice)
-    print('Lemons:',lemons)         #print inventory
-    print('Sugar:',sugar)
+    print('Money:',inventory["money"])
+    print('Ice:',inventory["ice"])
+    print('Lemons:',inventory["lemons"])         #print inventory
+    print('Sugar:',inventory["sugar"])
