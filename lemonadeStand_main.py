@@ -1,4 +1,5 @@
-import shop_function as shopF
+from shop_function import purchasing
+from recipe_function import recipeSelect
 import random as ran
 
 inventory = {"money": 100,
@@ -7,7 +8,11 @@ inventory = {"money": 100,
              "sugar" : 0}
 
 while inventory["money"] > 0:       #game loop, each repitition is a day
-    list = shopF.purchasing(inventory["money"],[inventory["ice"],inventory["lemons"],inventory["sugar"]])   #daily purchasing
+    list = purchasing(inventory["money"],[inventory["ice"],inventory["lemons"],inventory["sugar"]])   #daily purchasing
+    recipe = recipeSelect({"cost": 1,
+                           "ice" : 0,
+                           "lemons" : 0,
+                            "sugar" : 0})
 
     inventory["money"] = list[0]
     inventory["ice"] = list[1][0]
