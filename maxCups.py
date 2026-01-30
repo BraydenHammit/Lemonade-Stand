@@ -1,2 +1,14 @@
 def maxCupCalculate(recipe,inventory):
-    maxCups = (recipe['lemons'] * inventory['lemons'])+(recipe['ice'] * inventory['ice'])+(recipe['sugar'] * inventory['sugar'])
+    maxCupsL = (inventory['lemons']/recipe['lemons'])
+
+    if recipe['ice'] != 0:
+        maxCupsI = (inventory['ice']/recipe['ice'])
+    else:
+        maxCupsI = 999999
+
+    if recipe['sugar'] != 0:
+        maxCupsC = (inventory['sugar']/recipe['sugar'])
+    else:
+        maxCupsC = 999999
+
+    return min(maxCupsL,maxCupsI,maxCupsC,inventory["cups"])
