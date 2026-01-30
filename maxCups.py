@@ -1,2 +1,2 @@
 def maxCupCalculate(recipe,inventory):
-    print()
+    maxCups = (recipe['lemons'] * inventory['lemons'])+(recipe['ice'] * inventory['ice'])+(recipe['sugar'] * inventory['sugar'])
