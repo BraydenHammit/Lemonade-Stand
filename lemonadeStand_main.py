@@ -1,27 +1,30 @@
 from shop_function import purchasing
-from recipe_function import recipeSelect
-import random as ran
+from recipe_function import recipeSelect, costSelect
+from inventoryDisplay import displayInv
+from maxCups import maxCupCalculate
 
 inventory = {"money": 100,
              "ice" : 0,
              "lemons" : 0,
-             "sugar" : 0}
+             "sugar" : 0,
+             "cups": 0}
+
+recipe = {"cost": 1,
+          "ice" : 0,
+          "lemons" : 1,
+          "sugar" : 0}
 
 while inventory["money"] > 0:       #game loop, each repitition is a day
-    list = purchasing(inventory["money"],[inventory["ice"],inventory["lemons"],inventory["sugar"]])   #daily purchasing
-    recipe = recipeSelect({"cost": 1,
-                           "ice" : 0,
-                           "lemons" : 0,
-                            "sugar" : 0})
 
-    inventory["money"] = list[0]
-    inventory["ice"] = list[1][0]
-    inventory["lemons"] = list[1][1]
-    inventory["sugar"] = list[1][2]
+    inventory = purchasing(inventory)   #daily purchasing
 
-    inventory["money"] += ran.randint(0,5)   #replace when we get customer code
+    recipe = recipeSelect(recipe)
+    
+    recipe = costSelect(recipe)
 
-    print('Money:',inventory["money"])
-    print('Ice:',inventory["ice"])
-    print('Lemons:',inventory["lemons"])         #print inventory
-    print('Sugar:',inventory["sugar"])
+    cupsMade = maxCupCalculate(recipe,inventory)
+
+    profits = recipe["cost"]*cupsMade   #replace when we get customer code
+    recipe["cost"] += profits
+
+    displayInv(inventory,recipe,cupsMade, profits)

@@ -1,20 +1,41 @@
-def purchasing(money,ingredients):
-    purchaseType = input('What would you like to buy? (i/l/s) ')
-    purchaseAmount = int(input('How many would you like to buy? '))
+def purchasing(inventory):
+    purchaseType = 'n/a'
 
-    if purchaseType == 'i':
-        if money - 2.5*purchaseAmount > 0:
-            money -= 2.5*purchaseAmount
-            ingredients[0] += purchaseAmount
+    while purchaseType != 'done':
+        purchaseType = input('What would you like to buy? Ice, lemons, sugar, or cups? (i/l/s/c/done) ')
 
-    elif purchaseType == 'l':
-        if money - 4*purchaseAmount > 0:
-            money -= 4*purchaseAmount
-            ingredients[1] += purchaseAmount
+        if purchaseType != 'done':
+            purchaseAmount = int(input('How many would you like to buy? '))
 
-    elif purchaseType == 's':
-        if money - 3*purchaseAmount > 0:
-            money -= 3*purchaseAmount
-            ingredients[2] += purchaseAmount
-            
-    return [money,ingredients]
+        if purchaseType == 'i':
+            if inventory["money"] - .75*purchaseAmount > 0:
+                inventory["money"] -= .75*purchaseAmount
+                inventory["ice"] += purchaseAmount
+            else:
+                print('Too expensive!')
+
+        elif purchaseType == 'l':
+            if inventory["money"] - 1*purchaseAmount > 0:
+                inventory["money"] -= 1*purchaseAmount
+                inventory["lemons"] += purchaseAmount
+            else:
+                print('Too expensive!')
+
+        elif purchaseType == 's':
+            if inventory["money"] - .5*purchaseAmount > 0:
+                inventory["money"] -= .5*purchaseAmount
+                inventory["sugar"] += purchaseAmount
+            else:
+                print('Too expensive!')
+
+        elif purchaseType == 'c':
+            if inventory["money"] - .25*purchaseAmount > 0:
+                inventory["money"] -= .25*purchaseAmount
+                inventory["cups"] += purchaseAmount
+            else:
+                print('Too expensive!')
+        
+        elif purchaseType != 'done':
+            print('Invalid item!')
+                
+    return inventory
