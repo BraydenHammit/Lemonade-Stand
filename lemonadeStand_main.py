@@ -22,19 +22,21 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
           "lemons" : int(input('How many lemons would you like to use per cup?')),
           "sugar" : int(input('How much sugar would you like to use per cup?'))}
 
-    cupsBought = ran.randint(0,30)   #replace when we get customer code
-    
-    inventory['ice'] -= recipe["ice"]*cupsBought
-    inventory['lemons'] -= recipe["lemons"]*cupsBought
-    inventory['sugar'] -= recipe["sugar"]*cupsBought
-
     recipe = recipeSelect(recipe)
     
     recipe = costSelect(recipe)
 
     cupsMade = maxCupCalculate(recipe,inventory)
 
-    profits = recipe["cost"]*cupsMade   #replace when we get customer code
+    cupsBought = 0                  #UNFINISHED customer purchasing code
+    for each in range(10):
+      cupsBought+=1
+
+    inventory['ice'] -= recipe["ice"]*cupsBought
+    inventory['lemons'] -= recipe["lemons"]*cupsBought
+    inventory['sugar'] -= recipe["sugar"]*cupsBought
+
+    profits = recipe["cost"]*cupsBought   
     recipe["cost"] += profits
 
-    displayInv(inventory,recipe,cupsMade, profits)
+    displayInv(inventory,recipe,cupsMade,profits,cupsBought)
