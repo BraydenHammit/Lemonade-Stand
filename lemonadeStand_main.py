@@ -23,9 +23,11 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
           "sugar" : int(input('How much sugar would you like to use per cup?'))}
 
     cupsBought = ran.randint(0,30)   #replace when we get customer code
+    
     inventory['ice'] -= recipe["ice"]*cupsBought
     inventory['lemons'] -= recipe["lemons"]*cupsBought
     inventory['sugar'] -= recipe["sugar"]*cupsBought
+
     recipe = recipeSelect(recipe)
     
     recipe = costSelect(recipe)
