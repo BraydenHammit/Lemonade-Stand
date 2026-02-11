@@ -29,10 +29,8 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
     cupsMade = maxCupCalculate(recipe,inventory)
 
     cupsBought = 0                  #UNFINISHED customer purchasing code
-    for each in range(10):
+    for each in range(cupsMade):
       cupsBought+=1
-    if cupsBought >= cupsMade:
-       cupsBought = cupsMade
 
     inventory['ice'] -= recipe["ice"]*cupsBought
     inventory['lemons'] -= recipe["lemons"]*cupsBought
