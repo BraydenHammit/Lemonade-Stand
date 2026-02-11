@@ -18,9 +18,9 @@ recipe = {"cost": 1, # definines the recipe for use in the branching code
 while inventory["money"] > 0:       #game loop, each repitition is a day
     inventory = purchasing(inventory)   #daily purchasing
     
-    recipe = {"ice" : int(input('How much ice would you like to use per cup?')),
-          "lemons" : int(input('How many lemons would you like to use per cup?')),
-          "sugar" : int(input('How much sugar would you like to use per cup?'))}
+    recipe = {"ice" : -1,
+          "lemons" : -1,
+          "sugar" : -1}
 
     recipe = recipeSelect(recipe)
     

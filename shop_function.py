@@ -7,9 +7,10 @@ def purchasing(inventory):
         if purchaseType != 'done':
                 try:
                     purchaseAmount = int(input('How many would you like to buy? '))
-                    break
+                    
                 except ValueError:    
                     print("Not an integer Value")
+                    break
 
         if purchaseType == 'i':
             if inventory["money"] - .75*purchaseAmount > 0:
