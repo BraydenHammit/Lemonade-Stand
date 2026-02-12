@@ -1,4 +1,4 @@
-def displayInv(inventory,recipe,cupsMade,profits,cupsBought,endOfDay):
+def displayInv(inventory,recipe,cupsMade,profits,cupsBought,moneySpent,endOfDay):
     print('Money:',inventory["money"])
     print('Ice:',inventory["ice"])
     print('Lemons:',inventory["lemons"])         #print inventory
@@ -9,3 +9,4 @@ def displayInv(inventory,recipe,cupsMade,profits,cupsBought,endOfDay):
         print('Cups made:',cupsMade)
         print('Money earned:',profits)
         print('Purchases:',cupsBought)
+        print(moneySpent)

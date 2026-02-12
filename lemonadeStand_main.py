@@ -24,11 +24,15 @@ recipe = {"cost": 1, # definines the recipe for use in the branching code
 while inventory["money"] > 0:       #game loop, each repitition is a day
     print(f"========================================= DAY {day} =========================================")
 
-    displayInv(inventory,0,0,0,0,False)
+    displayInv(inventory,0,0,0,0,0,False)
 
     print('==========================================================================================')
 
+    prevMoney = inventory["money"]
+
     inventory = purchasing(inventory)   #daily purchasing
+
+    spent = prevMoney - inventory["money"]
     
     recipe = recipeSelect()
     
@@ -51,6 +55,6 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
     print("==========================================================================================")
 
-    displayInv(inventory,recipe,cupsMade,profits,cupsBought,True)
+    displayInv(inventory,recipe,cupsMade,profits,cupsBought,spent,True)
 
     day += 1
