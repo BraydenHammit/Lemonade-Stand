@@ -4,6 +4,8 @@ from inventoryDisplay import displayInv
 from maxCups import maxCupCalculate
 import random as ran
 
+day = 1
+
 inventory = {"money": 100, # definines the inventory for later use in the total over arching code
              "ice" : 0,
              "lemons" : 0,
@@ -16,6 +18,12 @@ recipe = {"cost": 1, # definines the recipe for use in the branching code
           "sugar" : 0}
 
 while inventory["money"] > 0:       #game loop, each repitition is a day
+    print(f"========================================= DAY {day} =========================================")
+
+    displayInv(inventory,0,0,0,0,False)
+
+    print('==========================================================================================')
+
     inventory = purchasing(inventory)   #daily purchasing
     
     recipe = {"ice" : -1,
@@ -39,4 +47,8 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
     profits = recipe["cost"]*cupsBought   
     recipe["cost"] += profits
 
-    displayInv(inventory,recipe,cupsMade,profits,cupsBought)
+    print("==========================================================================================")
+
+    displayInv(inventory,recipe,cupsMade,profits,cupsBought,True)
+
+    day += 1
