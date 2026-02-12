@@ -30,11 +30,7 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
     inventory = purchasing(inventory)   #daily purchasing
     
-    recipe = {"ice" : -1,
-          "lemons" : -1,
-          "sugar" : -1}
-
-    recipe = recipeSelect(recipe)
+    recipe = recipeSelect()
     
     recipe = costSelect(recipe)
 
