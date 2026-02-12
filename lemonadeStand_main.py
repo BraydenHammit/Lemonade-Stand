@@ -21,6 +21,12 @@ recipe = {"cost": 1, # definines the recipe for use in the branching code
           "sugar" : 0}
 
 while inventory["money"] > 0:       #game loop, each repitition is a day
+    print(f"========================================= DAY {day} =========================================")
+
+    displayInv(inventory,0,0,0,0,False)
+
+    print('==========================================================================================')
+
     inventory = purchasing(inventory)   #daily purchasing
     
     recipe = {"ice" : -1,
@@ -44,4 +50,8 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
     profits = recipe["cost"]*cupsBought   
     inventory["money"] += profits
 
-    displayInv(inventory,recipe,cupsMade,profits,cupsBought)
+    print("==========================================================================================")
+
+    displayInv(inventory,recipe,cupsMade,profits,cupsBought,True)
+
+    day += 1
