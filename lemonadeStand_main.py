@@ -5,6 +5,7 @@ from maxCups import maxCupCalculate
 import random as ran
 
 day = 1
+import math as m
 
 inventory = {"money": 100, # definines the inventory for later use in the total over arching code
              "ice" : 0,
@@ -37,7 +38,7 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
     cupsMade = maxCupCalculate(recipe,inventory)
 
     cupsBought = 0                  #UNFINISHED customer purchasing code
-    for each in range(cupsMade):
+    for each in range(m.floor(cupsMade)):
       cupsBought+=1
 
     inventory['ice'] -= recipe["ice"]*cupsBought
