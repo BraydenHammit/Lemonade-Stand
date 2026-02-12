@@ -1,13 +1,15 @@
 from shop_function import purchasing
 from recipe_function import recipeSelect, costSelect
 from inventoryDisplay import displayInv
-from maxCups import maxCupCalculate
+from maxCups import maxCupCalculate               # all the function imports and math + random
+from difficultySelect import selectDiff
 import random as ran
-
-day = 1
 import math as m
 
-inventory = {"money": 100, # definines the inventory for later use in the total over arching code
+day = 1
+difficulty = selectDiff()
+
+inventory = {"money": difficulty, # definines the inventory for later use in the total over arching code
              "ice" : 0,
              "lemons" : 0,
              "sugar" : 0,
@@ -46,7 +48,7 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
     inventory['sugar'] -= recipe["sugar"]*cupsBought
 
     profits = recipe["cost"]*cupsBought   
-    recipe["cost"] += profits
+    inventory["money"] += profits
 
     print("==========================================================================================")
 
