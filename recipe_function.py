@@ -1,4 +1,8 @@
-def recipeSelect(recipe):
+def recipeSelect():
+    recipe = {"ice" : -1,
+          "lemons" : -1,
+          "sugar" : -1}
+
     lemons = 0
     while lemons <= 0 or lemons >= 4:
         try:
