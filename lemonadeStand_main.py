@@ -42,7 +42,7 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
     cupsBought = 0                  #UNFINISHED customer purchasing code
     for each in range(m.floor(cupsMade)):
-      customerLoop()
+      cupsBought += 1
 
     inventory['ice'] -= recipe["ice"]*cupsBought
     inventory['lemons'] -= recipe["lemons"]*cupsBought
