@@ -3,6 +3,7 @@ from recipe_function import recipeSelect, costSelect
 from inventoryDisplay import displayInv
 from maxCups import maxCupCalculate               # all the function imports and math + random
 from difficultySelect import selectDiff
+from customerPurchasingEvaluations import customerLoop
 import random as ran
 import math as m
 
@@ -41,7 +42,7 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
     cupsBought = 0                  #UNFINISHED customer purchasing code
     for each in range(m.floor(cupsMade)):
-      cupsBought+=1
+      customerLoop()
 
     inventory['ice'] -= recipe["ice"]*cupsBought
     inventory['lemons'] -= recipe["lemons"]*cupsBought
