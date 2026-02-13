@@ -4,62 +4,88 @@ from inventoryDisplay import displayInv
 from maxCups import maxCupCalculate               # all the function imports and math + random
 from difficultySelect import selectDiff
 from customerPurchasingEvaluations import customerLoop
+from customer_class import Customer
 import random as ran
 import math as m
 
 day = 1
-difficulty, tax = selectDiff()
+difficulty, tax = selectDiff()        #select difficulty; changes starting money + tax amount
 
-inventory = {"money": difficulty, # definines the inventory for later use in the total over arching code
+inventory = {"money": difficulty, # define starting inventory
              "ice" : 0,
              "lemons" : 0,
              "sugar" : 0,
              "cups": 0}
 
-recipe = {"cost": 1, # definines the recipe for use in the branching code
+recipe = {"cost": 1, # define base empty recipe
           "ice" : 0,
           "lemons" : 1,
-          "sugar" : 0}
+          "sugar" : 0.01}
+
+
+
 
 while inventory["money"] > 0:       #game loop, each repitition is a day
     print(f"========================================= DAY {day} =========================================")
     displayInv(inventory,0,0,0,0,0,False,0)
+
+
+
 
     print("========================================= COSTS =========================================")
     prevMoney = inventory["money"]
     inventory = purchasing(inventory)   #daily purchasing
     spent = prevMoney - inventory["money"]
 
+
+
+
     print("========================================= RECIPE =========================================")
     if day == 1: 
       recipe = recipeSelect()
-      recipe = costSelect(recipe)
+      recipe = costSelect(recipe)                                                     # recipe changing code
     else:
       recipeChange = input('Would you like to edit your recipe? (y/n) ')
       if recipeChange != 'n' and recipeChange != 'N':
         recipe = recipeSelect()
         recipe = costSelect(recipe)
 
-    cupsMade = maxCupCalculate(recipe,inventory)
 
-    cupsBought = 0                  #UNFINISHED customer purchasing code
+
+
+    cupsMade = maxCupCalculate(recipe,inventory)    # calculate the max amount of cups you can make
+
+
+    cupsBought = 0                  #customer purchasing loop
     customers = []
     for each in range(m.floor(cupsMade)):
-      
-      cupsBought += 1
+      customers.append(Customer)
+      purchase = customerLoop(customers[each],recipe)
+      if purchase:
+        cupsBought += 1
+        inventory['ice'] -= recipe["ice"]
+        inventory['lemons'] -= recipe["lemons"]
+        inventory['sugar'] -= recipe["sugar"]
 
-    inventory['ice'] -= recipe["ice"]*cupsBought
-    inventory['lemons'] -= recipe["lemons"]*cupsBought
-    inventory['sugar'] -= recipe["sugar"]*cupsBought
 
     profits = recipe["cost"]*cupsBought   
     dailyTax = (tax*(profits/ran.choice([50,30,70,10]))) + tax
     inventory["money"] += profits - dailyTax
 
+
+
+
     print(f"====================================== DAY {day} RESULTS ======================================")
 
-    displayInv(inventory,recipe,cupsMade,profits,cupsBought,spent,True,dailyTax)
+    displayInv(inventory,recipe,cupsMade,profits,cupsBought,spent,True,dailyTax)                  # daily results
 
     day += 1
 
-    input(f'Pree ENTER to continue to day {day}. ')
+    if inventory["money"] > 0:
+      input(f'Pree ENTER to continue to day {day}. ')
+
+
+
+
+else:
+  print('You went bankrupt! Goodbye.')            # when you go bankrupt and loop ends, this runs

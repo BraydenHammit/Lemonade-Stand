@@ -1,2 +1,2 @@
-def customerLoop():
+def customerLoop(customer):
     print('unfinished')
