@@ -63,15 +63,16 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
       customers.append(Customer)
       purchase = customerLoop(customers[each],recipe)
       if purchase:
+        print(f'Customer #{each+1} purchased!')
         cupsBought += 1
         inventory['ice'] -= recipe["ice"]
-        inventory['lemons'] -= recipe["lemons"]
+        inventory['lemons'] -= recipe["lemons"]     # eventually print all this out each loop repeat
         inventory['sugar'] -= recipe["sugar"]
         inventory["money"] += recipe["cost"]
 
 
     profits = recipe["cost"]*cupsBought   
-    dailyTax = (tax*(profits/ran.choice([50,30,70,10]))) + tax
+    dailyTax = (tax*(profits/ran.choice([50,30,70,10])))/10 + tax
     inventory["money"] -= dailyTax
 
 

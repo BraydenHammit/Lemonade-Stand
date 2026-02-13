@@ -1,2 +1,2 @@
 def customerLoop(customer):
-    print('unfinished')
+    return True

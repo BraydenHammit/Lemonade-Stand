@@ -1,9 +1,9 @@
 def recipeSelect():
-    recipe = {"ice" : -1,
-          "lemons" : -1,
-          "sugar" : -1}
+    recipe = {"ice" : -1.4,
+          "lemons" : -1.4,
+          "sugar" : -1.4}
 
-    lemons = 0
+    lemons = -1.4
     while lemons <= 0 or lemons >= 4:
         if lemons != -1.4:
             print('Invalid amount!')
@@ -14,7 +14,7 @@ def recipeSelect():
             lemons = -1.4
     recipe["lemons"] = lemons
 
-    ice = -1
+    ice = -1.4
     while ice <= -1 or ice >= 4:
         if ice != -1.4:
             print('Invalid amount!')
@@ -25,7 +25,7 @@ def recipeSelect():
             ice = -1.4
     recipe["ice"] = ice
 
-    sugar = -1
+    sugar = -1.4
     while sugar <= -1 or sugar >= 4:
         if sugar != -1.4:
             print('Invalid amount!')
@@ -39,7 +39,7 @@ def recipeSelect():
     return recipe
 
 def costSelect(recipe):
-    cost = 0
+    cost = 3546
     while cost <= 0 or cost >= 2.51:
         if cost != 3546:
             print('Invalid amount!')

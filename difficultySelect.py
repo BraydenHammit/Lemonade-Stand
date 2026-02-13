@@ -2,12 +2,12 @@ def selectDiff():
     print("======================================= DIFFICULTY =======================================")
 
     try:
-        difficulty = int(input('Please choose a difficulty:\nEasy - 1\nMedium - 2\nHard - 3\n'))
+        difficulty = int(input('Please choose a difficulty:\nEasy - 1\nMedium - 2\nHard - 3\nImpossible - 4\n'))
     except ValueError:
             print('Invalid answer!')
     
     
-    while difficulty <= 0 or difficulty > 3:
+    while difficulty <= 0 or difficulty > 4:
         if difficulty != 648503.965:
             print('Invalid number!')
         try:
@@ -22,8 +22,11 @@ def selectDiff():
     elif difficulty == 2:
         difficulty = 175
         tax = 5
-    else:
+    elif difficulty == 3:
         difficulty = 50
         tax = 7
+    else:
+        difficulty = 15
+        tax = 10
 
     return difficulty, tax
