@@ -1,14 +1,15 @@
 from shop_function import purchasing
 from recipe_function import recipeSelect, costSelect
 from inventoryDisplay import displayInv
-from maxCups import maxCupCalculate               # all the function imports and math + random
+from maxCups import maxCupCalculate               # all the function imports, as well as the customer class, math and random
 from difficultySelect import selectDiff
 from customerPurchasingEvaluations import customerLoop
 from customer_class import Customer
 import random as ran
 import math as m
 
-day = 1
+
+day = 1 #starting day as 1
 difficulty, tax = selectDiff()        #select difficulty; changes starting money + tax amount
 
 inventory = {"money": difficulty, # define starting inventory
@@ -66,11 +67,12 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
         inventory['ice'] -= recipe["ice"]
         inventory['lemons'] -= recipe["lemons"]
         inventory['sugar'] -= recipe["sugar"]
+        inventory["money"] += recipe["cost"]
 
 
     profits = recipe["cost"]*cupsBought   
     dailyTax = (tax*(profits/ran.choice([50,30,70,10]))) + tax
-    inventory["money"] += profits - dailyTax
+    inventory["money"] -= dailyTax
 
 
 
