@@ -1,10 +1,10 @@
 def purchasing(inventory):
     purchaseType = 'n/a'
 
-    print('Costs: \nIce - 0.75\nLemons - 1.00\nSugar - 0.50\nCups - 0.25')
+    print('Ice - 0.75\nLemons - 1.00\nSugar - 0.50\nCups - 0.25')
 
     while purchaseType != 'done':
-        print("==========================================================================================")
+        print("========================================== SHOP ==========================================")
 
         purchaseType = input('What would you like to buy? Ice, lemons, sugar, or cups? (i/l/s/c/done) ')
 
@@ -52,7 +52,5 @@ def purchasing(inventory):
             print('Invalid item!')
         
         print(f'Money: {inventory["money"]} \nLemons: {inventory["lemons"]} \nIce: {inventory["ice"]} \nSugar: {inventory["sugar"]} \nCups: {inventory["cups"]}')
-                
-    print("==========================================================================================")
     
     return inventory

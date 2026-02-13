@@ -8,7 +8,7 @@ import random as ran
 import math as m
 
 day = 1
-difficulty = selectDiff()
+difficulty, tax = selectDiff()
 
 inventory = {"money": difficulty, # definines the inventory for later use in the total over arching code
              "ice" : 0,
@@ -23,20 +23,22 @@ recipe = {"cost": 1, # definines the recipe for use in the branching code
 
 while inventory["money"] > 0:       #game loop, each repitition is a day
     print(f"========================================= DAY {day} =========================================")
+    displayInv(inventory,0,0,0,0,0,False,0)
 
-    displayInv(inventory,0,0,0,0,0,False)
-
-    print('==========================================================================================')
-
+    print("========================================= COSTS =========================================")
     prevMoney = inventory["money"]
-
     inventory = purchasing(inventory)   #daily purchasing
-
     spent = prevMoney - inventory["money"]
-    
-    recipe = recipeSelect()
-    
-    recipe = costSelect(recipe)
+
+    print("========================================= RECIPE =========================================")
+    if day == 1: 
+      recipe = recipeSelect()
+      recipe = costSelect(recipe)
+    else:
+      recipeChange = input('Would you like to edit your recipe? (y/n) ')
+      if recipeChange != 'n' and recipeChange != 'N':
+        recipe = recipeSelect()
+        recipe = costSelect(recipe)
 
     cupsMade = maxCupCalculate(recipe,inventory)
 
@@ -51,10 +53,13 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
     inventory['sugar'] -= recipe["sugar"]*cupsBought
 
     profits = recipe["cost"]*cupsBought   
-    inventory["money"] += profits
+    dailyTax = (tax*(profits/ran.choice([50,30,70,10]))) + tax
+    inventory["money"] += profits - dailyTax
 
-    print("==========================================================================================")
+    print(f"====================================== DAY {day} RESULTS ======================================")
 
-    displayInv(inventory,recipe,cupsMade,profits,cupsBought,spent,True)
+    displayInv(inventory,recipe,cupsMade,profits,cupsBought,spent,True,dailyTax)
 
     day += 1
+
+    input(f'Pree ENTER to continue to day {day}. ')
