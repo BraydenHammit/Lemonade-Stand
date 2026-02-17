@@ -60,7 +60,9 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
     cupsBought = 0                  #customer purchasing loop
     customers = []
-    for each in range(m.floor(cupsMade)):
+    if cupsMade == 0:
+      print("You didn't make any cups! You had no customers.")
+    for each in range(cupsMade):
       customers.append(Customer)
       purchase = customerLoop(customers[each],recipe)
       if purchase:
@@ -72,6 +74,10 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
         inventory["money"] += recipe["cost"]  
         inventory["cups"] -= 1
         displayInv(inventory,0,0,0,0,0,False,0)
+      else:
+        print(f'Customer #{each+1} did not purchase.')
+        print('Reason: Unknown')           # return a reason in the function, print it here
+        
 
 
     profits = recipe["cost"]*cupsBought
@@ -96,3 +102,4 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 else:
 
   print('You went bankrupt! Goodbye.')            # when you go bankrupt and loop ends, this runs
+
