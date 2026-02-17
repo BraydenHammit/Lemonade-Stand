@@ -46,8 +46,9 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
       recipe = recipeSelect()
       recipe = costSelect(recipe)                                                     # recipe changing code
     else:
-      recipeChange = input('Would you like to edit your recipe? (y/n) ')
-      if recipeChange != 'n' and recipeChange != 'N':
+      while recipeChange != 'n' and recipeChange != 'N' and recipeChange != 'y' and recipeChange != 'Y':
+        recipeChange = input('Would you like to edit your recipe? (y/n) ')
+      if recipeChange == 'Y' or recipeChange == 'y':
         recipe = recipeSelect()
         recipe = costSelect(recipe)
 
@@ -93,4 +94,5 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
 
 else:
+
   print('You went bankrupt! Goodbye.')            # when you go bankrupt and loop ends, this runs
