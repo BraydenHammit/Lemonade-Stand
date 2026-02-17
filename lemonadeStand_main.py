@@ -18,10 +18,10 @@ inventory = {"money": difficulty, # define starting inventory
              "sugar" : 0,
              "cups": 0}
 
-recipe = {"cost": 1, # define base empty recipe
+recipe = {"cost": 0.01, # define base empty recipe
           "ice" : 0,
           "lemons" : 1,
-          "sugar" : 0.01}
+          "sugar" : 0}
 
 
 
@@ -66,12 +66,14 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
         print(f'Customer #{each+1} purchased!')
         cupsBought += 1
         inventory['ice'] -= recipe["ice"]
-        inventory['lemons'] -= recipe["lemons"]     # eventually print all this out each loop repeat
+        inventory['lemons'] -= recipe["lemons"]     
         inventory['sugar'] -= recipe["sugar"]
-        inventory["money"] += recipe["cost"]
+        inventory["money"] += recipe["cost"]  
+        inventory["cups"] -= 1
+        displayInv(inventory,0,0,0,0,0,False,0)
 
 
-    profits = recipe["cost"]*cupsBought   
+    profits = recipe["cost"]*cupsBought
     dailyTax = (tax*(profits/ran.choice([50,30,70,10])))/10 + tax
     inventory["money"] -= dailyTax
 
