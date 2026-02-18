@@ -38,13 +38,20 @@ def recipeSelect():
 
     return recipe
 
+
+
+
+
+
+
+
 def costSelect(recipe):
     cost = 3546
-    while cost <= 0 or cost >= 2.51:
+    while cost <= 0 or cost >= 3.01:
         if cost != 3546:
             print('Invalid amount!')
         try:
-            cost = float(input("How much do you want each cup of lemonade to cost? (Between 0.01 and 2.50) "))
+            cost = float(input("How much do you want each cup of lemonade to cost? (Between 0.01 and 3.00) "))
         except ValueError:
             print('Invalid cost!')
             cost = 3546

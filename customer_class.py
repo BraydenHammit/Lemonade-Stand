@@ -5,26 +5,35 @@
 # All of these attributes will influence their purchasing decision and
 # are returned as a list of attributes.
 
-import random
+import random as ran
+
+
 
 class Customer:
-    def __init__(self, sweetness_preference=None, ice_preference=None, price_point=None):
+    def __init__(self, sweetness_preference=None, ice_preference=None, price_point=None, leniency=None):
         self.sweetness_preference = (
             sweetness_preference if sweetness_preference is not None
-            else random.randint(1, 3)
+            else ran.randint(1, 3)
         )
         self.ice_preference = (
             ice_preference if ice_preference is not None
-            else random.randint(0, 3)
+            else ran.randint(0, 3)
         )
         self.price_point = (
             price_point if price_point is not None
-            else round(random.uniform(0.25, 4.0),2)
+            else round(ran.uniform(0.25, 4.0),2)
         )
+        self.leniency = (
+            leniency if leniency is not None
+            else ran.randint(-1, 1)
+        )
+
+
 
     def get_customer_attributes(self):
         return {
             "sweetness": self.sweetness_preference,
             "ice": self.ice_preference,
-            "price": self.price_point
+            "price": self.price_point,
+            "leniency": self.leniency
         }

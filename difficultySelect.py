@@ -18,7 +18,7 @@ def selectDiff():
 
     if difficulty == 1:
         difficulty = 300
-        tax = 53.5
+        tax = 3.5
     elif difficulty == 2:
         difficulty = 175
         tax = 5
