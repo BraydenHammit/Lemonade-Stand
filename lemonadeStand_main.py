@@ -49,6 +49,8 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
     else:
       while recipeChange != 'n' and recipeChange != 'N' and recipeChange != 'y' and recipeChange != 'Y':
         recipeChange = input('Would you like to edit your recipe? (y/n) ')
+        if recipeChange != 'n' and recipeChange != 'N' and recipeChange != 'y' and recipeChange != 'Y':
+          print('Invalid answer!')
       if recipeChange == 'Y' or recipeChange == 'y':
         recipe = recipeSelect()
         recipe = costSelect(recipe)
@@ -58,11 +60,12 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
     cupsMade = maxCupCalculate(recipe,inventory)    # calculate the max amount of cups you can make
 
-
     cupsBought = 0                  #customer purchasing loop
     customers = []
+    
     if cupsMade == 0:
       print("You didn't make any cups! You had no customers.")
+
     for each in range(cupsMade):
       customers.append(Customer)
       purchase, reason = customerLoop(customers[each],recipe)

@@ -2,7 +2,7 @@ def selectDiff():
     print("======================================= DIFFICULTY =======================================")
 
     try:
-        difficulty = int(input('Please choose a difficulty:\nEasy - 1\nMedium - 2\nHard - 3\nImpossible - 4\n'))
+        difficulty = int(input('Please choose a difficulty:\nEffortless - 0\nEasy - 1\nMedium - 2\nHard - 3\nImpossible - 4\n'))
     except ValueError:
             print('Invalid answer!')
     
@@ -16,6 +16,10 @@ def selectDiff():
             print('Invalid answer!')
             difficulty = 648503.965
 
+
+    if difficulty == 0:
+        difficulty = 7500
+        tax = 0.5
     if difficulty == 1:
         difficulty = 300
         tax = 3.5
