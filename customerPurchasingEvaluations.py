@@ -8,14 +8,21 @@ def customerLoop(customer,recipe):
         reason = None
     else:
         purchase = 0
-        if pref["leniency"] >= 0:                   #debug this and make sure it works
+        if pref["leniency"] >= 0:                
             reason = 'Too Sweet'
         else:
             reason = 'Too Sour'
-
-    if ran.randint(0,1) == 0:
-        purchase = 1
+    
+    if (pref["leniency"] >= 0 and pref["ice"] - recipe["ice"] >= 0) or (pref["leniency"] <= 0 and pref["ice"] - recipe["ice"] <= 0):
+        reason = None
     else:
         purchase = 0
+        if pref["leniency"] >= 0:                  
+            reason = 'Too Cold'
+        else:
+            reason = 'Too Warm'
+
+
+            #add cost pref
 
     return purchase, reason

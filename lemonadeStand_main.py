@@ -62,13 +62,14 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
     cupsBought = 0                  #customer purchasing loop
     customers = []
-    
+
     if cupsMade == 0:
       print("You didn't make any cups! You had no customers.")
 
     for each in range(cupsMade):
       customers.append(Customer)
       purchase, reason = customerLoop(customers[each],recipe)
+      
       if purchase:
         print(f'Customer #{each+1} purchased!')
         cupsBought += 1
@@ -78,9 +79,12 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
         inventory["money"] += recipe["cost"]  
         inventory["cups"] -= 1
         displayInv(inventory,0,0,0,0,0,False,0)
+
       else:
         print(f'Customer #{each+1} did not purchase.')
-        print('Reason:',reason)           # return a reason in the function, print it here
+        print('Reason:',reason)     
+
+      t.sleep(0.5)
         
 
 
