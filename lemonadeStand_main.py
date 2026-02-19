@@ -17,7 +17,8 @@ inventory = {"money": difficulty, # define starting inventory
              "ice" : 0,
              "lemons" : 0,
              "sugar" : 0,
-             "cups": 0}
+             "cups": 0,
+             "permit": 7}
 
 recipe = {"cost": 0.01, # define base empty recipe
           "ice" : 0,
@@ -100,16 +101,19 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
     displayInv(inventory,recipe,cupsMade,profits,cupsBought,spent,True,dailyTax)                  # daily results
 
     day += 1
+    inventory["permit"] -= 1
 
     if inventory["money"] > 0:
       input(f'Pree ENTER to continue to day {day}. ')
+    elif inventory["permit"] < 0:
+      death = 'permit'
+      break
     else:
       death = 'bankrupt'
+      break
 
 
-
-
-else:
-  if death == 'bankrupt':
-    print('You went bankrupt! Goodbye.')            # when you go bankrupt and loop ends, this runs
-
+if death == 'bankrupt':
+  print('You went bankrupt! Goodbye.')            # when you go bankrupt and loop ends, this runs
+elif death == 'permit':
+  print('Your permit ran out, and your earnings were confiscated! You ended up bankrupt. Goodbye!')
