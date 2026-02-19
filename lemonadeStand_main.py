@@ -91,7 +91,21 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
     profits = recipe["cost"]*cupsBought
     dailyTax = m.floor((tax*(profits/ran.choice([50,30,70,10])))/10) + tax
-    inventory["money"] -= dailyTax
+    while recipeChange != 'n' and recipeChange != 'N' and recipeChange != 'y' and recipeChange != 'Y':
+      recipeChange = input('Would you like to attempt to evade your taxes? (y/n) ')
+      if recipeChange != 'n' and recipeChange != 'N' and recipeChange != 'y' and recipeChange != 'Y':
+        print('Invalid answer!')
+    if recipeChange == 'Y' or recipeChange == 'y':
+      if ran.randint(1,3) == 3:
+        print('You... succeeded. ')
+        t.sleep(1)
+        print("Don't do it again.")
+        t.sleep(1)
+      else:
+        death = 'tax evasion'
+        break
+    else:
+      inventory["money"] -= dailyTax
 
 
 
@@ -126,3 +140,5 @@ elif death == 'permit':
   print('Your permit ran out, and your earnings were confiscated!\nYou went bankrupt. Goodbye!')
 elif death == 'forfeit':
   print('You forfeit your lemonade stand and donated all profits to charity.\nIt was a kind move, but it left you broke; you went bankrupt. Goodbye!')
+elif death == 'tax evasion':
+  print("You tried. You failed. Tax evasion isn't the answer. The IRS confiscated your earnings.\nYou went bankrupt. Goodbye... criminal.")

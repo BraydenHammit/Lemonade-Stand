@@ -2,10 +2,6 @@ def purchasing(inventory):
     purchaseType = 'n/a'
 
     print('Lemons - 0.75\nIce - 0.50\nSugar - 0.25\nCups - 0.10\nPermit Renewal - 5.00')
-    if inventory["permit"] == 0:
-        print('Note: Your permit is about to expire! You have to renew it today!')
-    else:
-        print(f'Note: You have {inventory["permit"]} days left until your permit runs out.')
 
     while purchaseType != 'done':
         print("========================================== SHOP ==========================================")
