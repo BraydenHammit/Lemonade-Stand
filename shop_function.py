@@ -1,7 +1,7 @@
 def purchasing(inventory):
     purchaseType = 'n/a'
 
-    print('Lemons - 1.00\nIce - 0.75\nSugar - 0.50\nCups - 0.25\nPermit Renweal - 5.00')
+    print('Lemons - 0.75\nIce - 0.50\nSugar - 0.25\nCups - 0.10\nPermit Renweal - 5.00')
     if inventory["permit"] == 0:
         print('Note: Your permit is about to expire! You have to renew it today!')
     else:
@@ -33,16 +33,16 @@ def purchasing(inventory):
 
 
         if purchaseType == 'i':
-            purchase("ice", purchaseAmount, inventory, 0.75)
+            purchase("ice", purchaseAmount, inventory, 0.5)
 
         elif purchaseType == 'l':
-            purchase("lemons", purchaseAmount, inventory, 1)
+            purchase("lemons", purchaseAmount, inventory, 0.75)
 
         elif purchaseType == 's':
-            purchase("sugar", purchaseAmount, inventory, 0.5)
+            purchase("sugar", purchaseAmount, inventory, 0.25)
 
         elif purchaseType == 'c':
-            purchase("cups", purchaseAmount, inventory, 0.25)
+            purchase("cups", purchaseAmount, inventory, 0.1)
         
         elif purchaseType == 'p':
             purchase("permit", 1, inventory, 5)

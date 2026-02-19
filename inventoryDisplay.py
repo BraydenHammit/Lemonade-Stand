@@ -9,6 +9,6 @@ def displayInv(inventory,recipe,cupsMade,profits,cupsBought,moneySpent,endOfDay,
         print('Cups made:',cupsMade)
         print('Money earned:',profits)
         print('Customer purchases:',cupsBought)
-        print('You spent $'+str(moneySpent))
+        print('You spent:',moneySpent)
         print('Daily taxes:',taxes)
         print('Total profit:',profits-moneySpent-taxes)

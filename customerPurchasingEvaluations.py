@@ -26,7 +26,7 @@ def customerLoop(customer,recipe):
     else:
         reason = 'Too Expensive'
 
-    if purchase == 3:
+    if purchase >= 2:
         purchase = True
     else: 
         purchase = False

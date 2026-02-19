@@ -13,7 +13,7 @@ class Customer:
     def __init__(self, sweetness_preference=None, ice_preference=None, price_point=None, leniency=None):
         self.sweetness_preference = (
             sweetness_preference if sweetness_preference is not None
-            else ran.randint(1, 3)
+            else ran.randint(-2, 3)
         )
         self.ice_preference = (
             ice_preference if ice_preference is not None
