@@ -104,16 +104,25 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
     inventory["permit"] -= 1
 
     if inventory["money"] > 0:
-      input(f'Pree ENTER to continue to day {day}. ')
-    elif inventory["permit"] < 0:
-      death = 'permit'
-      break
+      quit = input(f'Press ENTER to continue to day {day}, or type QUIT to quit.')
     else:
       death = 'bankrupt'
       break
 
+    if quit == 'QUIT':
+      death = 'forfeit'
+      break
+    
+    if inventory["permit"] < 0:
+      death = 'permit'
+      break
 
+
+
+# when you die and the loop ends, one of these runs:
 if death == 'bankrupt':
-  print('You went bankrupt! Goodbye.')            # when you go bankrupt and loop ends, this runs
+  print('You ran out of money, and had to close your lemonade stand.\nLike I said, you went bankrupt. Goodbye!')            
 elif death == 'permit':
-  print('Your permit ran out, and your earnings were confiscated! You ended up bankrupt. Goodbye!')
+  print('Your permit ran out, and your earnings were confiscated!\nYou went bankrupt. Goodbye!')
+elif death == 'forfeit':
+  print('You forfeit your lemonade stand and donated all profits to charity.\nIt was a kind move, but it left you broke; you went bankrupt. Goodbye!')
