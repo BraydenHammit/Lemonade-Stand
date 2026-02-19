@@ -70,7 +70,7 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
       print("You didn't make any cups! You had no customers.")
 
     for each in range(cupsMade):
-      customers.append(Customer)
+      customers.append(Customer())
       purchase, reason = customerLoop(customers[each],recipe)
       
       if purchase:
@@ -89,6 +89,9 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
         for rsn in reason:
           print(' ',rsn)
 
+      if each != cupsMade-1:
+        print('=============================')
+
       t.sleep(0.1)
         
 
@@ -96,13 +99,14 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
     profits = recipe["cost"]*cupsBought
     print("========================================== TAXES ==========================================")
     evade = 'n/a'
+    dailyTax = m.floor((tax*(profits/ran.choice([50,30,70,10])))/10) + tax
     while evade != 'n' and evade != 'N' and evade != 'y' and evade != 'Y':
-      evade = input('Would you like to attempt to evade your taxes? (y/n) ')
+      evade = input(f'Would you like to attempt to evade your taxes of {dailyTax}? (y/n) ')
       if evade != 'n' and evade != 'N' and evade != 'y' and evade != 'Y':
         print('Invalid answer!')
     if evade == 'Y' or evade == 'y':
       if ran.randint(1,3) == 3:
-        print('You... succeeded. ')
+        print('You...succeeded. ')
         t.sleep(3)
         print("Don't do it again.")
         t.sleep(3)
@@ -111,7 +115,6 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
         death = 'tax evasion'
         break
     else:
-      dailyTax = m.floor((tax*(profits/ran.choice([50,30,70,10])))/10) + tax
       inventory["money"] -= dailyTax
 
 
@@ -139,8 +142,7 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
       break
     
 
-
-
+print("========================================== DEATH ==========================================")
 
 # when you die and the loop ends, one of these runs:
 if death == 'bankrupt':
@@ -151,3 +153,5 @@ elif death == 'forfeit':
   print('You forfeit your lemonade stand and donated all profits to charity.\nIt was a kind move, but it left you broke; you went bankrupt. Goodbye!')
 elif death == 'tax evasion':
   print("You tried. You failed. Tax evasion isn't the answer. The IRS confiscated your earnings.\nYou went bankrupt. Goodbye...criminal.")
+
+print("===========================================================================================")

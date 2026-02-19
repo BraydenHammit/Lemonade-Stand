@@ -1,8 +1,8 @@
 import random as ran
 
 def customerLoop(customer,recipe):
-    customer.__init__(customer, sweetness_preference=None, ice_preference=None, price_point=None, leniency=None)
-    pref = customer.get_customer_attributes(customer)
+    #customer.__init__(customer, sweetness_preference=None, ice_preference=None, price_point=None, leniency=None)
+    pref = customer.get_customer_attributes()
     sweetness = recipe["sugar"] - recipe["lemons"]
     purchase = 0
     reason = []

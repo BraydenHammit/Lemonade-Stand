@@ -14,7 +14,7 @@ def displayInv(inventory,recipe,cupsMade,profits,cupsBought,moneySpent,endOfDay,
             print('Daily taxes...?')
         else:
             print('Daily taxes:',taxes)
-        print('Total profit:',profits-moneySpent-taxes)
+        print('Total profit:',round(profits-moneySpent-taxes,2))
         if inventory["permit"] == 1:
             print('Your permit expires tommorow!')
         else:
