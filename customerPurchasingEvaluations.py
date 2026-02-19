@@ -22,13 +22,21 @@ def customerLoop(customer,recipe):
         else:
             reason.append('Too Warm')
 
+    if (pref["leniency"] >= 0 and pref["water"] - recipe["water"] >= 0) or (pref["leniency"] <= 0 and pref["water"] - recipe["water"] <= 0):
+        purchase += 1
+    else:
+        if pref["leniency"] >= 0:                  
+            reason.append('Too Diluted')
+        else:
+            reason.append('Too Concentrated')
+
 
     if pref["price"] >= recipe["cost"]:
         purchase += 1
     else:
         reason.append('Too Expensive')
 
-    if purchase == 3 or (purchase == 2 and ran.randint(0,1) == 1):          #if they dont't have a problem, or if they only have one it's a 50% chance
+    if purchase == 4 or (purchase == 3 and ran.randint(0,1) == 1) or (purchase == 2 and ran.randint(1,3) == 3):          #if they dont't have a problem, or if they only have one it's a 50% chance
         purchase = True
     else: 
         purchase = False
