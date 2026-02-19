@@ -1,7 +1,7 @@
 def purchasing(inventory):
     purchaseType = 'n/a'
 
-    print('Lemons - 0.75\nIce - 0.50\nSugar - 0.25\nCups - 0.10\nPermit Renewal - 5.00')
+    print('Lemons - 0.75\nIce - 0.50\nSugar - 0.25\nWater - 0.01\nCups - 0.10\nPermit Renewal - 5.00')
 
     while purchaseType != 'done':
         print("========================================== SHOP ==========================================")
@@ -9,18 +9,18 @@ def purchasing(inventory):
 
 
 
-        purchaseType = input('What would you like to buy? Ice, lemons, sugar, cups, or a permit renewal? (i/l/s/c/p/done) ') #add a permit that is required and you must renew every 7 days (for like 5 bucks)
+        purchaseType = input('What would you like to buy? Ice, lemons, sugar, water, cups, or a permit renewal? (i/l/s/w/c/p/done) ') #add a permit that is required and you must renew every 7 days (for like 5 bucks)
 
-        if (purchaseType != 'done') and (purchaseType != 'i') and (purchaseType != 'l') and (purchaseType != 's') and (purchaseType != 'c') and (purchaseType != 'p'):
+        if (purchaseType != 'done') and (purchaseType != 'i') and (purchaseType != 'l') and (purchaseType != 's') and (purchaseType != 'c') and (purchaseType != 'p') and (purchaseType != 'w'):
             valid = False
         else:
-            valid = True            #check if the answer was one of the allowed answers (i/l/s/c/p/done)
+            valid = True            #check if the answer was one of the allowed answers (i/l/s/w/c/p/done)
 
 
 
         if (purchaseType != 'done') and (purchaseType != 'p') and valid:
             try:
-                purchaseAmount = int(input('How many would you like to buy? '))
+                purchaseAmount = int(input('How many/much would you like to buy? '))
                     
             except ValueError:    
                 print("Invalid answer!")
@@ -42,14 +42,16 @@ def purchasing(inventory):
         
         elif purchaseType == 'p':
             purchase("permit", 1, inventory, 5)
-        
+
+        elif purchaseType == 'w':
+            purchase("water", purchaseAmount, inventory, 0.01)
 
 
 
         elif not valid:
             print('Invalid item!')
         
-        print(f'Money: {inventory["money"]} \nLemons: {inventory["lemons"]} \nIce: {inventory["ice"]} \nSugar: {inventory["sugar"]} \nCups: {inventory["cups"]}')               #print inventory between purchases
+        print(f'Money: {inventory["money"]} \nLemons: {inventory["lemons"]} \nIce: {inventory["ice"]} \nSugar: {inventory["sugar"]} \nWater: {inventory["water"]} \nCups: {inventory["cups"]}')               #print inventory between purchases
     
     return inventory
 
@@ -61,7 +63,9 @@ def purchase(type, amount, inventory, cost):            #purchasing function, us
         inventory["money"] = round(inventory["money"],2)
         if type == 'permit':
             inventory[type] = 7             #only if renewing permit, do this
-            print('Your permit has been renewed! make sure to renew it again within 7 days.')
+            print('Your permit has been renewed! Make sure to renew it again within 7 days.')
+        elif type == 'water':
+            inventory[type] += amount*100
         else:
             inventory[type] += amount
     else:

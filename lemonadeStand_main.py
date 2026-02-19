@@ -18,12 +18,14 @@ inventory = {"money": difficulty, # define starting inventory
              "lemons" : 0,
              "sugar" : 0,
              "cups": 0,
+             "water": 0,
              "permit": 7}
 
 recipe = {"cost": 0.01, # define base empty recipe
           "ice" : 0,
           "lemons" : 1,
-          "sugar" : 0}
+          "sugar" : 0,
+          "water": 25}
 
 
 
@@ -79,6 +81,7 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
         inventory['ice'] -= recipe["ice"]
         inventory['lemons'] -= recipe["lemons"]     #print new info if they purchase
         inventory['sugar'] -= recipe["sugar"]
+        inventory['water'] -= recipe["water"]
         inventory["money"] += recipe["cost"]  
         inventory["cups"] -= 1
         displayInv(inventory,0,0,0,0,0,False,0)
@@ -105,7 +108,7 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
       if evade != 'n' and evade != 'N' and evade != 'y' and evade != 'Y':           #tax evasion decision code
         print('Invalid answer!')
     if evade == 'Y' or evade == 'y':
-      if ran.randint(1,3) == 3:
+      if ran.randint(1,3) == 3:       # 33% chance to succeed in evading
         print('You...succeeded. ')
         t.sleep(3)
         print("Don't do it again.")

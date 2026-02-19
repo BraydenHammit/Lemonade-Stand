@@ -3,43 +3,33 @@ def recipeSelect():
           "lemons" : -1.4,
           "sugar" : -1.4}
 
-    lemons = -1.4           #make this a function
-    while lemons <= 0 or lemons >= 4:
-        if lemons != -1.4:
-            print('Invalid amount!')
-        try:
-            lemons = int(input("How many lemons do you want to use per cup? (Between 1 and 3) "))
-        except ValueError:
-            print('Invalid amount!')
-            lemons = -1.4
-    recipe["lemons"] = lemons
-
-    ice = -1.4
-    while ice <= -1 or ice >= 4:
-        if ice != -1.4:
-            print('Invalid amount!')
-        try:
-            ice = int(input("How much ice do you want to use per cup? (Between 0 and 3) "))
-        except ValueError:
-            print('Invalid amount!')
-            ice = -1.4
-    recipe["ice"] = ice
-
-    sugar = -1.4
-    while sugar <= -1 or sugar >= 4:
-        if sugar != -1.4:
-            print('Invalid amount!')
-        try:
-            sugar = int(input("How much sugar do you want to use per cup? (Between 0 and 3) "))
-        except ValueError:
-            print('Invalid amount!')
-            sugar = -1.4
-    recipe["sugar"] = sugar
+    recipe["lemons"] = ingredient(1,3,'lemons')
+    recipe["ice"] = ingredient(0,3,'ice')
+    recipe["sugar"] = ingredient(0,3,'sugar')
+    recipe["water"] = ingredient(25,500,'water')
 
     return recipe
 
 
-
+def ingredient(min,max,type):
+    ingred = -1.4
+    while ingred < min or ingred > max:
+        if ingred != -1.4:
+            print('Invalid amount!')
+        try:
+            if type == 'water':
+                ingred = int(input("How much water do you want to use per cup? (Between 25 and 500 milliliters.) "))
+            elif type == 'lemons':
+                ingred  = int(input("How many lemons do you want to use per cup? (Between 1 and 3 lemons.) "))
+            elif type == 'sugar':
+                ingred = int(input("How much sugar do you want to use per cup? (Between 0 and 3 grams.) "))
+            elif type == 'ice':
+                ingred = int(input("How much ice do you want to use per cup? (Between 0 and 3 cubes.) "))
+        except ValueError:
+            print('Invalid amount!')
+            ingred = -1.4
+    
+    return ingred
 
 
 

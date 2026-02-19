@@ -10,7 +10,7 @@ import random as ran
 
 
 class Customer:
-    def __init__(self, sweetness_preference=None, ice_preference=None, price_point=None, leniency=None):
+    def __init__(self, sweetness_preference=None, ice_preference=None, water_preference=None, price_point=None, leniency=None):
         self.sweetness_preference = (
             sweetness_preference if sweetness_preference is not None
             else ran.randint(-2, 3)
@@ -18,6 +18,10 @@ class Customer:
         self.ice_preference = (
             ice_preference if ice_preference is not None
             else ran.randint(0, 3)
+        )
+        self.water_preference = (
+            water_preference if water_preference is not None
+            else ran.randint(-225,250)
         )
         self.price_point = (
             price_point if price_point is not None
@@ -34,6 +38,7 @@ class Customer:
         return {
             "sweetness": self.sweetness_preference,
             "ice": self.ice_preference,
+            "water": self.water_preference,
             "price": self.price_point,
             "leniency": self.leniency
         }
