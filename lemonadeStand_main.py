@@ -1,5 +1,5 @@
 from shop_function import purchasing
-from recipe_function import recipeSelect, costSelect
+from recipe_function import recipeSelect
 from inventoryDisplay import displayInv
 from maxCups import maxCupCalculate               # all the function imports, as well as the customer class, math and random
 from difficultySelect import selectDiff
@@ -47,8 +47,7 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
     print("========================================= RECIPE =========================================")
     if day == 1: 
-      recipe = recipeSelect()
-      recipe = costSelect(recipe)                                                     # recipe/cost changing code
+      recipe = recipeSelect()                                                  # recipe/cost changing code
     else:
       recipeChange = 'n/a'
       while recipeChange != 'n' and recipeChange != 'N' and recipeChange != 'y' and recipeChange != 'Y':
@@ -57,7 +56,6 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
           print('Invalid answer!')
       if recipeChange == 'Y' or recipeChange == 'y':
         recipe = recipeSelect()
-        recipe = costSelect(recipe)
 
 
 
