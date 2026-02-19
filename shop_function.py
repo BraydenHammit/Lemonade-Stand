@@ -57,7 +57,7 @@ def purchasing(inventory):
 
 def purchase(type, amount, inventory, cost):
     if inventory["money"] - cost*amount > 0:
-        inventory["money"] -= cost*amount
+        inventory["money"] -= round(cost*amount,2)
         if type == 'permit':
             inventory[type] = 7
             print('Your permit has been renewed! make sure to renew it again within 7 days.')

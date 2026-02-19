@@ -4,7 +4,7 @@ def selectDiff():
     
     difficulty = 648503.965
     
-    while difficulty <= -1 or difficulty > 4:
+    while difficulty <= -1 or difficulty > 5:
         if difficulty != 648503.965:
             print('Invalid number!')
         try:

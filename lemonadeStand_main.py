@@ -71,7 +71,7 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
     for each in range(cupsMade):
       customers.append(Customer)
-      purchase, reason = True, 'Unknown' #make customer loop when fixed
+      purchase, reason = customerLoop(customers[each],recipe)
       
       if purchase:
         print(f'Customer #{each+1} purchased!')
