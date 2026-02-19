@@ -1,12 +1,8 @@
 def selectDiff():
     print("======================================= DIFFICULTY =======================================")
-
-    try:
-        difficulty = int(input('Please choose a difficulty:\nEffortless - 0\nEasy - 1\nNormal - 2\nHard - 3\nImpossible - 4\nRemorseless - 5\n'))
-    except ValueError:
-        print('Invalid answer!')
-        difficulty = 648503.965
+    print('Difficulties:\nEffortless - 0\nEasy - 1\nNormal - 2\nHard - 3\nImpossible - 4\nRemorseless - 5')
     
+    difficulty = 648503.965
     
     while difficulty <= -1 or difficulty > 4:
         if difficulty != 648503.965:

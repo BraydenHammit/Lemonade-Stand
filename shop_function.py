@@ -9,7 +9,7 @@ def purchasing(inventory):
 
 
 
-        purchaseType = input('What would you like to buy? Ice, lemons, sugar, cups, or renew your permit? (i/l/s/c/p/done) ') #add a permit that is required and you must renew every 7 days (for like 5 bucks)
+        purchaseType = input('What would you like to buy? Ice, lemons, sugar, cups, or a permit renewal? (i/l/s/c/p/done) ') #add a permit that is required and you must renew every 7 days (for like 5 bucks)
 
         if (purchaseType != 'done') and (purchaseType != 'i') and (purchaseType != 'l') and (purchaseType != 's') and (purchaseType != 'c') and (purchaseType != 'p'):
             valid = False
@@ -60,6 +60,7 @@ def purchase(type, amount, inventory, cost):
         inventory["money"] -= cost*amount
         if type == 'permit':
             inventory[type] = 7
+            print('Your permit has been renewed! make sure to renew it again within 7 days.')
         else:
             inventory[type] += amount
     else:

@@ -48,6 +48,7 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
       recipe = recipeSelect()
       recipe = costSelect(recipe)                                                     # recipe changing code
     else:
+      recipeChange = 'n/a'
       while recipeChange != 'n' and recipeChange != 'N' and recipeChange != 'y' and recipeChange != 'Y':
         recipeChange = input('Would you like to edit your recipe? (y/n) ')
         if recipeChange != 'n' and recipeChange != 'N' and recipeChange != 'y' and recipeChange != 'Y':
@@ -63,6 +64,7 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
     cupsBought = 0                  #customer purchasing loop
     customers = []
+    print("======================================= CUSTOMERS =======================================")
 
     if cupsMade == 0:
       print("You didn't make any cups! You had no customers.")
@@ -90,21 +92,24 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
 
     profits = recipe["cost"]*cupsBought
-    dailyTax = m.floor((tax*(profits/ran.choice([50,30,70,10])))/10) + tax
-    while recipeChange != 'n' and recipeChange != 'N' and recipeChange != 'y' and recipeChange != 'Y':
-      recipeChange = input('Would you like to attempt to evade your taxes? (y/n) ')
-      if recipeChange != 'n' and recipeChange != 'N' and recipeChange != 'y' and recipeChange != 'Y':
+    print("========================================= TAXES =========================================")
+    evade = 'n/a'
+    while evade != 'n' and evade != 'N' and evade != 'y' and evade != 'Y':
+      evade = input('Would you like to attempt to evade your taxes? (y/n) ')
+      if evade != 'n' and evade != 'N' and evade != 'y' and evade != 'Y':
         print('Invalid answer!')
-    if recipeChange == 'Y' or recipeChange == 'y':
+    if evade == 'Y' or evade == 'y':
       if ran.randint(1,3) == 3:
         print('You... succeeded. ')
-        t.sleep(1)
+        t.sleep(3)
         print("Don't do it again.")
-        t.sleep(1)
+        t.sleep(3)
+        dailyTax = 0
       else:
         death = 'tax evasion'
         break
     else:
+      dailyTax = m.floor((tax*(profits/ran.choice([50,30,70,10])))/10) + tax
       inventory["money"] -= dailyTax
 
 
@@ -118,7 +123,7 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
     inventory["permit"] -= 1
 
     if inventory["money"] > 0:
-      quit = input(f'Press ENTER to continue to day {day}, or type QUIT to quit.')
+      quit = input(f'Press ENTER to continue to day {day}, or type QUIT to quit. ')
     else:
       death = 'bankrupt'
       break
