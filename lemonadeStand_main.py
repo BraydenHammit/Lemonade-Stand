@@ -36,8 +36,6 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
 
 
-
-    print("========================================= COSTS =========================================")
     prevMoney = inventory["money"]
     inventory = purchasing(inventory)   #daily purchasing
     spent = prevMoney - inventory["money"]

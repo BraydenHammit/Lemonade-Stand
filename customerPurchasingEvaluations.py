@@ -36,7 +36,7 @@ def customerLoop(customer,recipe):
     else:
         reason.append('Too Expensive')
 
-    if purchase == 4 or (purchase == 3 and ran.randint(0,1) == 1) or (purchase == 2 and ran.randint(1,3) == 3):          #if they dont't have a problem, or if they only have one it's a 50% chance
+    if purchase == 4 or (purchase == 3 and ran.randint(0,1) == 1) or (purchase == 2 and ran.randint(1,3) == 3):          #if they dont't have a problem, if they only have one it's a 50% chance, if they have two its a 33% chance
         purchase = True
     else: 
         purchase = False
