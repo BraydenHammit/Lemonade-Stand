@@ -45,7 +45,7 @@ def purchasing(inventory):
             purchase("cups", purchaseAmount, inventory, 0.25)
         
         elif purchaseType == 'p':
-            purchase("permit", 1, inventory, 0.5)
+            purchase("permit", 1, inventory, 5)
         
 
 
