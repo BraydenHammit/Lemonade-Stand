@@ -2,29 +2,29 @@ def customerLoop(customer,recipe):
     pref = customer.get_customer_attributes(customer)
     sweetness = recipe["sugar"] - (recipe["lemons"]//2)
     purchase = 0
-    reason = None
+    reason = []
 
     if (pref["leniency"] >= 0 and pref["sweetness"] - sweetness >= 0) or (pref["leniency"] <= 0 and pref["sweetness"] - sweetness <= 0):
         purchase += 1
     else:
         if pref["leniency"] >= 0:                
-            reason = 'Too Sweet'
+            reason.append('Too Sweet')
         else:
-            reason = 'Too Sour'
+            reason.append('Too Sour')
     
     if (pref["leniency"] >= 0 and pref["ice"] - recipe["ice"] >= 0) or (pref["leniency"] <= 0 and pref["ice"] - recipe["ice"] <= 0):
         purchase += 1
     else:
         if pref["leniency"] >= 0:                  
-            reason = 'Too Cold'
+            reason.append('Too Cold')
         else:
-            reason = 'Too Warm'
+            reason.append('Too Warm')
 
 
     if pref["price"] >= recipe["price"]:
         purchase += 1
     else:
-        reason = 'Too Expensive'
+        reason.append('Too Expensive')
 
     if purchase >= 2:
         purchase = True

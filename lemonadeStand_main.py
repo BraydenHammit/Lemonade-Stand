@@ -64,7 +64,7 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
     cupsBought = 0                  #customer purchasing loop
     customers = []
-    print("======================================= CUSTOMERS =======================================")
+    print("======================================== CUSTOMERS =======================================")
 
     if cupsMade == 0:
       print("You didn't make any cups! You had no customers.")
@@ -85,14 +85,16 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
       else:
         print(f'Customer #{each+1} did not purchase.')
-        print('Reason:',reason)     
+        print('Reason(s):')     
+        for rsn in reason:
+          print(' ',rsn)
 
       t.sleep(0.1)
         
 
 
     profits = recipe["cost"]*cupsBought
-    print("========================================= TAXES =========================================")
+    print("========================================== TAXES ==========================================")
     evade = 'n/a'
     while evade != 'n' and evade != 'N' and evade != 'y' and evade != 'Y':
       evade = input('Would you like to attempt to evade your taxes? (y/n) ')
@@ -121,6 +123,10 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
     day += 1
     inventory["permit"] -= 1
+    
+    if inventory["permit"] < 0:
+      death = 'permit'
+      break
 
     if inventory["money"] > 0:
       quit = input(f'Press ENTER to continue to day {day}, or type QUIT to quit. ')
@@ -132,9 +138,7 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
       death = 'forfeit'
       break
     
-    if inventory["permit"] < 0:
-      death = 'permit'
-      break
+
 
 
 
