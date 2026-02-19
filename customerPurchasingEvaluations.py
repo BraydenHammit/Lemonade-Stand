@@ -1,3 +1,5 @@
+import random as ran
+
 def customerLoop(customer,recipe):
     customer.__init__(customer, sweetness_preference=None, ice_preference=None, price_point=None, leniency=None)
     pref = customer.get_customer_attributes(customer)
@@ -27,7 +29,7 @@ def customerLoop(customer,recipe):
     else:
         reason.append('Too Expensive')
 
-    if purchase >= 2:
+    if purchase == 3 or (purchase == 2 and ran.randint(0,1) == 1):
         purchase = True
     else: 
         purchase = False

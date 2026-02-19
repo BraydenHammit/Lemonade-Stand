@@ -19,18 +19,18 @@ def selectDiff():
         tax = 0.5
     elif difficulty == 1:
         difficulty = 300
-        tax = 3.5
+        tax = 2
     elif difficulty == 2:
         difficulty = 175
-        tax = 5
+        tax = 3.5
     elif difficulty == 3:
         difficulty = 50
-        tax = 7
+        tax = 5
     elif difficulty == 4:
         difficulty = 15
-        tax = 10
+        tax = 6.5
     elif difficulty == 5:
         difficulty = 3
-        tax = 25
+        tax = 7.5
 
     return difficulty, tax
