@@ -103,11 +103,13 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
     if inventory["money"] > 0:
       input(f'Pree ENTER to continue to day {day}. ')
+    else:
+      death = 'bankrupt'
 
 
 
 
 else:
-
-  print('You went bankrupt! Goodbye.')            # when you go bankrupt and loop ends, this runs
+  if death == 'bankrupt':
+    print('You went bankrupt! Goodbye.')            # when you go bankrupt and loop ends, this runs
 
