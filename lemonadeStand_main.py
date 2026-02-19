@@ -4,7 +4,7 @@ from inventoryDisplay import displayInv
 from maxCups import maxCupCalculate               # all the function imports, as well as the customer class, math and random
 from difficultySelect import selectDiff
 from customerPurchasingEvaluations import customerLoop
-from diplomas import diplomaY, diplomaM
+from achievements.diplomas import diplomaY, diplomaM
 from customer_class import Customer
 import random as ran
 import math as m
@@ -158,5 +158,6 @@ elif death == 'forfeit':
   print('You forfeit your lemonade stand and donated all profits to charity.\nIt was a kind move, but it left you broke; you went bankrupt. Goodbye!')
 elif death == 'tax evasion':
   print("You tried. You failed. Tax evasion isn't the answer. The IRS confiscated your earnings.\nYou went bankrupt. Goodbye...criminal.")
+
 
 print("===========================================================================================")
