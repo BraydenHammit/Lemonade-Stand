@@ -3,7 +3,7 @@ def recipeSelect():
           "lemons" : -1.4,
           "sugar" : -1.4}
 
-    lemons = -1.4
+    lemons = -1.4           #make this a function
     while lemons <= 0 or lemons >= 4:
         if lemons != -1.4:
             print('Invalid amount!')

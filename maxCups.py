@@ -11,4 +11,4 @@ def maxCupCalculate(recipe,inventory):
     else:
         maxCupsC = 999999
 
-    return min(maxCupsL,maxCupsI,maxCupsC,inventory["cups"])
+    return min(maxCupsL,maxCupsI,maxCupsC,inventory["cups"])            #the minimum value is the restricting value, therefore it's the max amount

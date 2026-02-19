@@ -30,7 +30,7 @@ recipe = {"cost": 0.01, # define base empty recipe
 
 while inventory["money"] > 0:       #game loop, each repitition is a day
     print(f"========================================= DAY {day} =========================================")
-    displayInv(inventory,0,0,0,0,0,False,0)
+    displayInv(inventory,0,0,0,0,0,False,0)         #show inventory at start of day
 
 
 
@@ -46,7 +46,7 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
     print("========================================= RECIPE =========================================")
     if day == 1: 
       recipe = recipeSelect()
-      recipe = costSelect(recipe)                                                     # recipe changing code
+      recipe = costSelect(recipe)                                                     # recipe/cost changing code
     else:
       recipeChange = 'n/a'
       while recipeChange != 'n' and recipeChange != 'N' and recipeChange != 'y' and recipeChange != 'Y':
@@ -77,7 +77,7 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
         print(f'Customer #{each+1} purchased!')
         cupsBought += 1
         inventory['ice'] -= recipe["ice"]
-        inventory['lemons'] -= recipe["lemons"]     
+        inventory['lemons'] -= recipe["lemons"]     #print new info if they purchase
         inventory['sugar'] -= recipe["sugar"]
         inventory["money"] += recipe["cost"]  
         inventory["cups"] -= 1
@@ -85,7 +85,7 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
       else:
         print(f'Customer #{each+1} did not purchase.')
-        print('Reason(s):')     
+        print('Reason(s):')             #print reasons of why they didn't purchase if they didn't
         for rsn in reason:
           print(' ',rsn)
 
@@ -99,10 +99,10 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
     profits = recipe["cost"]*cupsBought
     print("========================================== TAXES ==========================================")
     evade = 'n/a'
-    dailyTax = m.floor((tax*(profits/ran.choice([50,30,70,10])))/10) + tax
+    dailyTax = m.floor((tax*(profits/ran.choice([50,30,70,10])))/10) + tax        #tax calculation
     while evade != 'n' and evade != 'N' and evade != 'y' and evade != 'Y':
       evade = input(f'Would you like to attempt to evade your taxes of {dailyTax}? (y/n) ')
-      if evade != 'n' and evade != 'N' and evade != 'y' and evade != 'Y':
+      if evade != 'n' and evade != 'N' and evade != 'y' and evade != 'Y':           #tax evasion decision code
         print('Invalid answer!')
     if evade == 'Y' or evade == 'y':
       if ran.randint(1,3) == 3:
@@ -113,9 +113,9 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
         dailyTax = 0
       else:
         death = 'tax evasion'
-        break
+        break     #break and print death screen
     else:
-      inventory["money"] -= dailyTax
+      inventory["money"] -= dailyTax          #apply tax if not evaded
 
 
 
@@ -124,22 +124,22 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
     displayInv(inventory,recipe,cupsMade,profits,cupsBought,spent,True,dailyTax)                  # daily results
 
-    day += 1
-    inventory["permit"] -= 1
+    day += 1         #add a day to count at end of each day
+    inventory["permit"] -= 1.  #permit countdown, -1 each day
     
     if inventory["permit"] < 0:
       death = 'permit'
-      break
+      break       # death screen if you forget to renew your permit
 
     if inventory["money"] > 0:
-      quit = input(f'Press ENTER to continue to day {day}, or type QUIT to quit. ')
+      quit = input(f'Press ENTER to continue to day {day}, or type QUIT to quit. ')       #pause in between days, give option to quit
     else:
       death = 'bankrupt'
-      break
+      break     #death screen if bankrupt
 
     if quit == 'QUIT':
       death = 'forfeit'
-      break
+      break     #death screen if you quit
     
 
 print("========================================== DEATH ==========================================")
