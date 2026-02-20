@@ -6,7 +6,7 @@ def customerLoop(customer,recipe):
     purchase = 0
     reason = []
 
-    if customer["duck"]:
+    if pref["duck"]:
         purchase = False
         reason.append('No Grapes')
 
