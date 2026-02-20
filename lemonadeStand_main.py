@@ -4,7 +4,7 @@ from inventoryDisplay import displayInv
 from maxCups import maxCupCalculate               # all the function imports, as well as the customer class, math and random
 from difficultySelect import selectDiff
 from customerPurchasingEvaluations import customerLoop
-from achievements.diplomas import diplomaY, diplomaM
+from achievements.achievements import achievementY, achievementM
 from customer_class import Customer
 import random as ran
 import math as m
@@ -125,9 +125,9 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
     displayInv(inventory,recipe,cupsMade,profits,cupsBought,spent,True,dailyTax)                  # daily results
 
     if day == 30:   # 1 month achievement tkinter image
-      diplomaM()
+      achievementM()
     if day == 365:    # 1 year achievement tkinter image
-      diplomaY()
+      achievementY()
 
     day += 1         #add a day to count at end of each day
     inventory["permit"] -= 1.  #permit countdown, -1 each day
