@@ -14,7 +14,7 @@ def customerLoop(customer,recipe):
         if (pref["leniency"] >= 0 and pref["sweetness"] - sweetness >= 0) or (pref["leniency"] <= 0 and pref["sweetness"] - sweetness <= 0):
             purchase += 1
         else:
-            if pref["leniency"] >= 0:                
+            if pref["leniency"] > 0:                
                 reason.append('Too Sweet')
             else:
                 reason.append('Too Sour')
@@ -22,15 +22,15 @@ def customerLoop(customer,recipe):
         if (pref["leniency"] >= 0 and pref["ice"] - recipe["ice"] >= 0) or (pref["leniency"] <= 0 and pref["ice"] - recipe["ice"] <= 0):
             purchase += 1
         else:
-            if pref["leniency"] >= 0:                  
+            if pref["leniency"] > 0:                  
                 reason.append('Too Cold')
             else:
                 reason.append('Too Warm')
 
-        if (pref["leniency"] >= 0 and pref["water"] - recipe["water"] >= 0) or (pref["leniency"] <= 0 and pref["water"] - recipe["water"] <= 0):
+        if (pref["leniency"] >= 0 and pref["water"] - recipe["water"] - 250 >= 0) or (pref["leniency"] <= 0 and pref["water"] - recipe["water"] - 250 <= 0):
             purchase += 1
         else:
-            if pref["leniency"] >= 0:                  
+            if pref["leniency"] > 0:                  
                 reason.append('Too Diluted')
             else:
                 reason.append('Too Concentrated')
