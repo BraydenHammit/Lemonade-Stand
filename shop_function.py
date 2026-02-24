@@ -8,23 +8,29 @@ def purchasing(inventory):
         print("========================================== SHOP ==========================================")
 
 
+        valid = False
+        while not valid:
+            purchaseType = input('What would you like to buy? Ice, lemons, sugar, water, cups, or a permit renewal? (i/l/s/w/c/p/done) ') #add a permit that is required and you must renew every 7 days (for like 5 bucks)
 
-
-        purchaseType = input('What would you like to buy? Ice, lemons, sugar, water, cups, or a permit renewal? (i/l/s/w/c/p/done) ') #add a permit that is required and you must renew every 7 days (for like 5 bucks)
-
-        if (purchaseType != 'done') and (purchaseType != 'i') and (purchaseType != 'l') and (purchaseType != 's') and (purchaseType != 'c') and (purchaseType != 'p') and (purchaseType != 'w'):
-            valid = False
-        else:
-            valid = True            #check if the answer was one of the allowed answers (i/l/s/w/c/p/done)
+            if (purchaseType != 'done') and (purchaseType != 'i') and (purchaseType != 'l') and (purchaseType != 's') and (purchaseType != 'c') and (purchaseType != 'p') and (purchaseType != 'w'):
+                valid = False
+                print('Invalid item!')
+            else:
+                valid = True            #check if the answer was one of the allowed answers (i/l/s/w/c/p/done)
 
 
 
         if (purchaseType != 'done') and (purchaseType != 'p') and valid:
-            try:
-                purchaseAmount = int(input('How many/much would you like to buy? '))
-                    
-            except ValueError:    
-                print("Invalid answer!")
+            valid = False
+            while not valid:
+                try:
+                    purchaseAmount = int(input('How many/much would you like to buy? '))
+                    valid = True
+                        
+                except ValueError:    
+                    print("Invalid answer!")
+                    valid = False
+
 
 
 
@@ -40,7 +46,7 @@ def purchasing(inventory):
 
         elif purchaseType == 'c':
             purchase("cups", purchaseAmount, inventory, 0.1)
-        
+            
         elif purchaseType == 'p':
             purchase("permit", 1, inventory, 5)
 
@@ -49,8 +55,6 @@ def purchasing(inventory):
 
 
 
-        elif not valid:
-            print('Invalid item!')
         
         print(f'Money: {inventory["money"]} \nLemons: {inventory["lemons"]} \nIce: {inventory["ice"]} \nSugar: {inventory["sugar"]} \nWater: {inventory["water"]} \nCups: {inventory["cups"]}')               #print inventory between purchases
     
