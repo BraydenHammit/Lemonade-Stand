@@ -13,13 +13,7 @@ def recipeSelect():
 
 
 def ingredient(min,max,type):
-    if type == 'cost':
-        ingred = 3456
-    else:
-        ingred = -1.4
     while ingred < min or ingred > max:
-        if (ingred != -1.4 and type != 'cost') or (ingred != 3456 and type == 'cost'):
-            print('Invalid amount!')
         try:
             if type == 'water':
                 ingred = int(input("How much water do you want to use per cup? (Between 25 and 500 milliliters.) "))
@@ -33,9 +27,5 @@ def ingredient(min,max,type):
                 ingred = float(input("How much do you want each cup of lemonade to cost? (Between 0.01 and 3.50) "))
         except ValueError:
             print('Invalid amount!')
-            if type == 'cost':
-                ingred = 3456
-            else:
-                ingred = -1.4
     
     return ingred
