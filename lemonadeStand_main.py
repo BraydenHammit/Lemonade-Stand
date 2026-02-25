@@ -5,6 +5,8 @@ from maxCups import maxCupCalculate               # all the function imports, as
 from difficultySelect import selectDiff
 from customerPurchasingEvaluations import customerLoop
 from achievements.achievements import achievementY, achievementM
+from death import died
+from taxes import taxes
 from customer_class import Customer
 import random as ran
 import math as m
@@ -97,25 +99,8 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
 
     profits = recipe["cost"]*cupsBought
-    print("========================================== TAXES ==========================================")
-    evade = 'n/a'
-    dailyTax = m.floor((tax*(profits/ran.choice([50,30,70,10])))/10) + tax        #tax calculation
-    while evade != 'n' and evade != 'N' and evade != 'y' and evade != 'Y':
-      evade = input(f'Would you like to attempt to evade your taxes of {dailyTax}? (y/n) ')
-      if evade != 'n' and evade != 'N' and evade != 'y' and evade != 'Y':           #tax evasion decision code
-        print('Invalid answer!')
-    if evade == 'Y' or evade == 'y':
-      if ran.randint(1,3) == 3:       # 33% chance to succeed in evading
-        print('You...succeeded. ')
-        t.sleep(3)
-        print("Don't do it again.")
-        t.sleep(3)
-        dailyTax = 0
-      else:
-        death = 'tax evasion'
-        break     #break and print death screen
-    else:
-      inventory["money"] -= dailyTax          #apply tax if not evaded
+    dailyTax = m.floor((tax*(profits/ran.choice([50,30,70,10])))/10) + tax          #tax calculation
+    inventory, dailyTax = taxes(inventory, dailyTax)
 
 
 
@@ -147,17 +132,5 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
       break     #death screen if you quit
     
 
-print("========================================== DEATH ==========================================")
 
-# when you die and the loop ends, one of these runs:
-if death == 'bankrupt':
-  print('You ran out of money, and had to close your lemonade stand.\nLike I said, you went bankrupt. Goodbye!')            
-elif death == 'permit':
-  print('Your permit ran out, and your earnings were confiscated!\nYou went bankrupt. Goodbye!')
-elif death == 'forfeit':
-  print('You forfeit your lemonade stand and donated all profits to charity.\nIt was a kind move, but it left you broke; you went bankrupt. Goodbye!')
-elif death == 'tax evasion':
-  print("You tried. You failed. Tax evasion isn't the answer. The IRS confiscated your earnings.\nYou went bankrupt. Goodbye...criminal.")
-
-
-print("===========================================================================================")
+died(death)
