@@ -2,6 +2,7 @@ import time as t
 import random as ran
 
 def taxes(inventory, tax):
+    evade = 'n/a'
     print("========================================== TAXES ==========================================")       
     while evade != 'n' and evade != 'N' and evade != 'y' and evade != 'Y':
       evade = input(f'Would you like to attempt to evade your taxes of {tax}? (y/n) ')
