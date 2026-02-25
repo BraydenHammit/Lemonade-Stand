@@ -99,7 +99,7 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
 
     profits = recipe["cost"]*cupsBought
-    dailyTax = m.floor((tax*(profits/ran.choice([50,30,70,10])))/10) + tax          #tax calculation
+    dailyTax = m.floor(tax*(profits/ran.randint(10,20))) + tax          #tax calculation
     inventory, dailyTax = taxes(inventory, dailyTax)
     if inventory == 'death':
       death = 'tax evasion'
