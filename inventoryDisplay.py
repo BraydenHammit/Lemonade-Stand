@@ -21,4 +21,4 @@ def displayInv(inventory,recipe,cupsMade,profits,cupsBought,moneySpent,endOfDay,
         elif inventory["permit"] == 1:
             print('Your permit expires tommorow!')
         else:
-            print(f'Permit exipiration: {inventory["permit"]} days')
+            print(f'Permit exipiration: {int(inventory["permit"])} days')
