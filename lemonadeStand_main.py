@@ -6,7 +6,7 @@ from difficultySelect import selectDiff
 from customerPurchasingEvaluations import customerLoop
 from achievements.achievements import achievementY, achievementM
 from death import died
-from taxes import taxes
+from yesNoLoop import taxes, changeR
 from customer_class import Customer
 import random as ran
 import math as m
@@ -50,12 +50,8 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
     if day == 1: 
       recipe = recipeSelect()                                                  # recipe/cost changing code
     else:
-      recipeChange = 'n/a'
-      while recipeChange != 'n' and recipeChange != 'N' and recipeChange != 'y' and recipeChange != 'Y':
-        recipeChange = input('Would you like to edit your recipe? (y/n) ')
-        if recipeChange != 'n' and recipeChange != 'N' and recipeChange != 'y' and recipeChange != 'Y':
-          print('Invalid answer!')
-      if recipeChange == 'Y' or recipeChange == 'y':
+      recipeChange = changeR()
+      if recipeChange:
         recipe = recipeSelect()
 
 

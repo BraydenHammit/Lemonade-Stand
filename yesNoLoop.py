@@ -21,3 +21,14 @@ def taxes(inventory, tax):
       inventory["money"] -= tax          #apply tax if not evaded
 
     return inventory, tax
+
+def changeR():
+  recipeChange = 'n/a'
+  while recipeChange != 'n' and recipeChange != 'N' and recipeChange != 'y' and recipeChange != 'Y':
+    recipeChange = input('Would you like to edit your recipe? (y/n) ')
+    if recipeChange != 'n' and recipeChange != 'N' and recipeChange != 'y' and recipeChange != 'Y':
+      print('Invalid answer!')
+  if recipeChange == 'y' or recipeChange == 'Y':
+    return True
+  else:
+    return False
