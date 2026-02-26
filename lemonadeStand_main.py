@@ -90,8 +90,10 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
       if each != cupsMade-1:
         print('=============================')
 
-      if cupsMade <= 500:
+      if cupsMade <= 100:
         t.sleep(0.1)
+      elif cupsMade <= 500:
+        t.sleep(0.05)
       elif cupsMade <= 2500:
         t.sleep(0.025)
       else:
