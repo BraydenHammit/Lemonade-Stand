@@ -6,7 +6,7 @@ def recipeSelect():
     recipe["lemons"] = ingredient(1,3,'lemons')
     recipe["ice"] = ingredient(0,3,'ice')
     recipe["sugar"] = ingredient(0,3,'sugar')
-    recipe["water"] = ingredient(25,500,'water')
+    recipe["water"] = ingredient(25,1000,'water')
     recipe["cost"] = ingredient(0.01,3.5,'cost')
 
     return recipe
@@ -22,7 +22,7 @@ def ingredient(min,max,type):
             print('Invalid amount!')
         try:
             if type == 'water':
-                ingred = int(input("How much water do you want to use per cup? (Between 25 and 500 milliliters.) "))
+                ingred = int(input("How much water do you want to use per cup? (Between 25 and 1000 milliliters.) "))
             elif type == 'lemons':
                 ingred  = int(input("How many lemons do you want to use per cup? (Between 1 and 3 lemons.) "))
             elif type == 'sugar':

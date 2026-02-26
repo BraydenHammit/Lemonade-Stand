@@ -27,7 +27,7 @@ def customerLoop(customer,recipe):
             else:
                 reason.append('Too Warm')
 
-        if (pref["leniency"] >= 0 and pref["water"] - recipe["water"] - 250 >= 0) or (pref["leniency"] <= 0 and pref["water"] - recipe["water"] - 250 <= 0):
+        if (pref["leniency"] >= 0 and pref["water"] - recipe["water"] >= 0) or (pref["leniency"] <= 0 and pref["water"] - recipe["water"] - 250 <= 0):
             purchase += 1
         else:
             if pref["leniency"] > 0:                  

@@ -21,7 +21,7 @@ class Customer:
         )
         self.water_preference = (
             water_preference if water_preference is not None
-            else ran.randint(-225,250)
+            else ran.randint(0,1000)
         )
         self.price_point = (
             price_point if price_point is not None
