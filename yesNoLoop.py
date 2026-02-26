@@ -9,7 +9,7 @@ def taxes(inventory, tax):
       if evade != 'n' and evade != 'N' and evade != 'y' and evade != 'Y':           #tax evasion decision code
         print('Invalid answer!')
     if evade == 'Y' or evade == 'y':
-      if ran.randint(1,3) == 3:       # 33% chance to succeed in evading
+      if ran.randint(1,3) != 3:       # 33% chance to succeed in evading
         print('You...succeeded. ')
         t.sleep(3)
         print("Don't do it again.")
