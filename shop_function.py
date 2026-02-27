@@ -1,8 +1,12 @@
 def purchasing(inventory):
     purchaseType = 'n/a'
+    first = True
 
     while purchaseType != 'done':
-        print('=============================')
+        if not first:
+            print('=============================')
+        else:
+            first = False
 
 
         valid = False
