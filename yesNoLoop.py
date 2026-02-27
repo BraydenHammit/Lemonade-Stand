@@ -25,7 +25,7 @@ def taxes(inventory, tax):
 
 
 
-def loopYN(type):
+def loopYN(type):   # used whenever an option is needed (shop open / recipe change)
   yn = 'n/a'
   while yn != 'n' and yn != 'N' and yn != 'y' and yn != 'Y':
     if type == 'r':
