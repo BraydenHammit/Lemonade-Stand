@@ -1,11 +1,8 @@
 def purchasing(inventory):
     purchaseType = 'n/a'
-    
-    print("========================================= COSTS =========================================")
-    print('Lemons - 0.75\nIce - 0.50\nSugar - 0.25\nWater - 0.01\nCups - 0.10\nPermit Renewal - 5.00')
 
     while purchaseType != 'done':
-        print("========================================== SHOP ==========================================")
+        print('=============================')
 
 
         valid = False

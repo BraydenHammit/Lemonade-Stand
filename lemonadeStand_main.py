@@ -6,7 +6,7 @@ from difficultySelect import selectDiff
 from customerPurchasingEvaluations import customerLoop
 from achievements.achievements import achievementY, achievementM
 from death import died
-from yesNoLoop import taxes, changeR
+from yesNoLoop import taxes, loopYN
 from customer_class import Customer
 import random as ran
 import math as m
@@ -39,9 +39,26 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
 
 
-    prevMoney = inventory["money"]
-    inventory = purchasing(inventory)   #daily purchasing
-    spent = prevMoney - inventory["money"]
+    print("========================================= COSTS =========================================")
+    print('Lemons - 0.75\nIce - 0.50\nSugar - 0.25\nWater - 0.01\nCups - 0.10\nPermit Renewal - 5.00')
+
+
+
+
+    print("========================================== SHOP ==========================================")
+    if day == 1:          #daily purchasing
+      prevMoney = inventory["money"]
+      inventory = purchasing(inventory) 
+      spent = prevMoney - inventory["money"]
+    else:
+      shop = loopYN('s')
+      if shop:
+        prevMoney = inventory["money"]
+        inventory = purchasing(inventory) 
+        spent = prevMoney - inventory["money"]
+      else:
+        spent = 0
+
 
 
 
@@ -50,7 +67,7 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
     if day == 1: 
       recipe = recipeSelect()                                                  # recipe/cost changing code
     else:
-      recipeChange = changeR()
+      recipeChange = loopYN('r')
       if recipeChange:
         recipe = recipeSelect()
 
@@ -96,13 +113,15 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
         t.sleep(0.05)
       elif cupsMade <= 2500:
         t.sleep(0.025)
-      else:
+      elif cupsMade <= 7500:
         t.sleep(0.001)
+      else:
+        t.sleep(0.00001)
         
 
 
     profits = recipe["cost"]*cupsBought
-    dailyTax = (m.floor((tax*(profits/ran.randint(10,20)))/100))*100 + tax          #tax calculation
+    dailyTax = (m.floor((tax*(profits/ran.randint(10,20)))/100))*100 + tax/2          #tax calculation
     inventory, dailyTax = taxes(inventory, dailyTax)
     if inventory == 'death':
       death = 'tax evasion'

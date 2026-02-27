@@ -22,13 +22,19 @@ def taxes(inventory, tax):
 
     return inventory, tax
 
-def changeR():
-  recipeChange = 'n/a'
-  while recipeChange != 'n' and recipeChange != 'N' and recipeChange != 'y' and recipeChange != 'Y':
-    recipeChange = input('Would you like to edit your recipe? (y/n) ')
-    if recipeChange != 'n' and recipeChange != 'N' and recipeChange != 'y' and recipeChange != 'Y':
+
+
+
+def loopYN(type):
+  yn = 'n/a'
+  while yn != 'n' and yn != 'N' and yn != 'y' and yn != 'Y':
+    if type == 'r':
+      yn = input('Would you like to edit your recipe? (y/n) ')
+    elif type == 's':
+      yn = input('Would you like to open the shop? (y/n) ')
+    if yn != 'n' and yn != 'N' and yn != 'y' and yn != 'Y':
       print('Invalid answer!')
-  if recipeChange == 'y' or recipeChange == 'Y':
+  if yn == 'y' or yn == 'Y':
     return True
   else:
     return False
