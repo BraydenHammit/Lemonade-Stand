@@ -25,7 +25,7 @@ def achievementY():
 
 def achievementX():
     achievement50K = tk.Tk()
-    achievement50K.title("1 Year of Lemonade Stand")
+    achievement50K.title("$50k made from Lemonade Stand")
     achievement50K.geometry('216x288') 
     image30 = tk.PhotoImage(file='achievements/achievement50K.png')
     label30 = tk.Label(achievement50K, image=image30)
