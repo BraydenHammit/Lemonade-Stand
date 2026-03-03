@@ -25,15 +25,20 @@ def taxes(inventory, tax):
 
 
 
-def loopYN(type):   # used whenever an option is needed (shop open / recipe change)
+def loopYN(type):   # used whenever an option is needed (shop open / recipe change / bet)
   yn = 'n/a'
   while yn != 'n' and yn != 'N' and yn != 'y' and yn != 'Y':
     if type == 'r':
       yn = input('Would you like to edit your recipe? (y/n) ')
     elif type == 's':
       yn = input('Would you like to open the shop? (y/n) ')
+    elif type == 'b':
+      yn = input('Do you accept the bet? (y/n) ')
     if yn != 'n' and yn != 'N' and yn != 'y' and yn != 'Y':
-      print('Invalid answer!')
+      if type == 'b':
+        print('Are you sure?')
+      else:
+        print('Invalid answer!')
   if yn == 'y' or yn == 'Y':
     return True
   else:
