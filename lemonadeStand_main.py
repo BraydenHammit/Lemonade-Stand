@@ -4,7 +4,7 @@ from inventoryDisplay import displayInv
 from maxCups import maxCupCalculate               # all the function imports, as well as the customer class, math and random
 from difficultySelect import selectDiff
 from customerPurchasingEvaluations import customerLoop
-from achievements.achievements import achievementY, achievementM
+from achievements.achievements import achievementY, achievementM, achievementX
 from death import died
 from yesNoLoop import taxes, loopYN
 from story import story
@@ -17,6 +17,7 @@ story(ran.randint(1,2),ran.randint(1,2),ran.choice(['Jeff','Joe','Darrel','Jim',
 
 day = 1 #starting day as 1
 difficulty, tax = selectDiff()        #select difficulty; changes starting money + tax amount
+FT50k = False
 
 inventory = {"money": difficulty, # define starting inventory
              "ice" : 0,
@@ -140,7 +141,10 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
       achievementM()
     if day == 365:    # 1 year achievement tkinter image
       achievementY()
-
+    if inventory["money"] >= 50000 and not FT50k:
+      achievementX()
+      FT50k = True
+  
     day += 1         #add a day to count at end of each day
     inventory["permit"] -= 1.  #permit countdown, -1 each day
     
