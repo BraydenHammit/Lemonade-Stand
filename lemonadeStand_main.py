@@ -17,7 +17,7 @@ story(ran.randint(1,2),ran.randint(1,2),ran.choice(['Jeff','Joe','Darrel','Jim',
 
 day = 1 #starting day as 1
 difficulty, tax = selectDiff()        #select difficulty; changes starting money + tax amount
-FT50k = False
+FT50k = False   #used for checking whether or not tkinter image for 50k has already been displayed
 
 inventory = {"money": difficulty, # define starting inventory
              "ice" : 0,
@@ -141,7 +141,7 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
       achievementM()
     if day == 365:    # 1 year achievement tkinter image
       achievementY()
-    if inventory["money"] >= 50000 and not FT50k:
+    if inventory["money"] >= 50000 and not FT50k:   # 50k money achievement tkinter image
       achievementX()
       FT50k = True
   
