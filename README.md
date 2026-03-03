@@ -6,5 +6,5 @@ A game where you run your own lemonade stand! Change your recipe, satisfy custom
 
 
 Un-added Ideas:                                                                          
-Add a story - maybe you have to make enough money for something because of a bet                                                                
+Add more story                                                                
 Better system for amount of customers that show up                                                                                      
