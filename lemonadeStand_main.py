@@ -13,7 +13,7 @@ import random as ran
 import math as m
 import time as t
 
-story(ran.randint(1,2),ran.randint(1,2),ran.choice(['Jeff','Joe','Darrel','Jim','Jamal','Jefferson','Jeffrey','Harry','Frodo','Bilbo','Pippin','Hagrid','Albus','Draco','Drake','Samuel','Fred','George','Ron']))
+story(ran.randint(1,3),ran.randint(1,2),ran.choice(['Jeff','Joe','Darrel','Jim','Jamal','Jefferson','Jeffrey','Harry','Frodo','Bilbo','Pippin','Hagrid','Albus','Draco','Drake','Samuel','Fred','George','Ron']))
 
 day = 1 #starting day as 1
 difficulty, tax = selectDiff()        #select difficulty; changes starting money + tax amount

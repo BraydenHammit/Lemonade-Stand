@@ -11,7 +11,8 @@ def story(story,ext,name):
             t.sleep(5.64)
             print("You won. It doubled. You bet it again. It doubled. You bet it again...")
             t.sleep(3.5)
-            print("You lost it all. You left with a total of fifty thousand dollars in debt. \nIn attempt to pay off your debt, you set up a lemonade stand. Don't go bankrupt.")
+            print("You lost it all. You left with a total of fifty thousand dollars in debt.")
+            print("In attempt to pay off your debt, you set up a lemonade stand. Don't go bankrupt.")
         elif story == 2:
             print(f"Your friend {name} made a bet that you couldn't make fifty thousand dollars. \nHe said you should open a lemonade stand, and make fifty thousand.")
             loopYN('b')
