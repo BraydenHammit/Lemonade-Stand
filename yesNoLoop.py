@@ -27,19 +27,37 @@ def taxes(inventory, tax):
 
 def loopYN(type):   # used whenever an option is needed (shop open / recipe change / bet)
   yn = 'n/a'
-  while (yn != 'n' and yn != 'N' and type != 'b') and yn != 'y' and yn != 'Y':
+  repeats = 0
+  while ((yn != 'n' and yn != 'N' and type != 'b') and yn != 'y' and yn != 'Y') or (yn != 'y' and yn != 'Y' and type == 'b'):
     if yn.lower() == 'n':
-      print('Are you sure?')
+      if repeats == 0:
+        print('Are you sure?')
+      elif repeats == 1:
+        print('You should reconsider.')
+      elif repeats == 2:
+        print('Remember, this game is called Lemonade Stand.')
+      else:
+        print('Accept the bet.')
+      repeats += 1
+
     if type == 'r':
       yn = input('Would you like to edit your recipe? (y/n) ')
+
     elif type == 's':
       yn = input('Would you like to open the shop? (y/n) ')
+
     elif type == 'b':
       yn = input('Do you accept the bet? (y/n) ')
+
     elif type == 'st':
       yn = input('Do you want to hear the backstory? (y/n) ')
+
+
     if yn != 'n' and yn != 'N' and yn != 'y' and yn != 'Y':
       print('Invalid answer!')
+
+
+
   if yn == 'y' or yn == 'Y':
     return True
   else:
