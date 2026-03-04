@@ -7,7 +7,7 @@ def story(story,ext,name):
 
     if listen:
         if story == 1:
-            print(f"On a trip to Vegas, you and your friend {name} made a million dollars each. \nYou then took a risky gamble. You bet it all on black 32.")
+            print(f"On a trip to Vegas, you and your friend {name} made a million dollars each. \nYou then took a risky gamble. You bet it all on black thirty two.")
             t.sleep(5.64)
             print("You won. It doubled. You bet it again. It doubled. You bet it again...")
             t.sleep(3.5)
