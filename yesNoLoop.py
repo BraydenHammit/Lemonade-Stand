@@ -53,7 +53,7 @@ def loopYN(type):   # used whenever an option is needed (shop open / recipe chan
       yn = input('Do you want to hear the backstory? (y/n) ')
 
     elif type == 'w':
-      yn = input('Do you want to keep going and try to get to 50K? (y/n) ')
+      yn = input('Do you want to keep going? (y/n) ')
 
     elif type == '50':
       yn = input('Do you want to continue to endless mode? (y/n) ')
