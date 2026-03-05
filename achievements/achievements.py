@@ -34,11 +34,11 @@ def achievementX():
     achievement50K.mainloop()
 
 def achievementW():
-    achievement1W = tk.Tk()
-    achievement1W.title("1 Week of Lemonade Stand")
-    achievement1W.geometry('216x288') 
+    achievementW = tk.Tk()
+    achievementW.title("1 Week of Lemonade Stand")
+    achievementW.geometry('216x288') 
     image30 = tk.PhotoImage(file='achievements/achievementW.png')
-    label30 = tk.Label(achievement1W, image=image30)
+    label30 = tk.Label(achievementW, image=image30)
     label30.place(x=0, y=0, relwidth=1, relheight=1)
 
-    achievement1W.mainloop()
+    achievementW.mainloop()
