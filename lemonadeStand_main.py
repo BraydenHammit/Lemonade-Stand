@@ -4,7 +4,7 @@ from inventoryDisplay import displayInv
 from maxCups import maxCupCalculate               # all the function imports, as well as the customer class, math and random
 from difficultySelect import selectDiff
 from customerPurchasingEvaluations import customerLoop
-from achievements.achievements import achievementY, achievementM, achievementX
+from achievements.achievements import achievementY, achievementM, achievementX, achievementW
 from death import died
 from yesNoLoop import taxes, loopYN
 from story import story
@@ -13,7 +13,7 @@ import random as ran
 import math as m
 import time as t
 
-story(ran.randint(1,3),ran.randint(1,2),ran.choice(['Jeff','Joe','Darrel','Jim','Jamal','Jefferson','Jeffrey','Harry','Frodo','Bilbo','Pippin','Hagrid','Albus','Draco','Drake','Samuel','Fred','George','Ron','Gabe','Mike','Dan','Kelly','Lupin','Quetzalcoatlus','Jimmy','Chase','Milo','Cedric','Blake','the Mailman','your mother','Alejandro','Astrid','Jimbus','Anderdingus','Jaquavius','Lebron','James','Donald','Guy','uhhh... somebody (you have no friends)','Kevin','Karen','Ken']))
+story(ran.randint(1,3),ran.randint(1,2),ran.choice(['Jeff','Joe','Darrel','Jim','Jamal','Jefferson','Jeffrey','Harry','Frodo','Bilbo','Pippin','Hagrid','Albus','Draco','Drake','Samuel','Fred','George','Ron','Gabe','Mike','Dan','Kelly','Lupin','Quetzalcoatlus','Jimmy','Chase','Milo','Cedric','Blake','the Mailman','your mother','Alejandro','Astrid','Jimbus','Anderdingus','Jaquavius','Lebron','James','Donald','Guy','uhhh... somebody (you have no friends)','Kevin','Karen','Ken','Bruce','Michal','Parker']))
 
 day = 1 #starting day as 1
 difficulty, tax = selectDiff()        #select difficulty; changes starting money + tax amount
@@ -137,6 +137,8 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
     displayInv(inventory,recipe,cupsMade,profits,cupsBought,spent,True,dailyTax)                  # daily results
 
+    if day == 7:   # 1 week achievement tkinter image
+      achievementW()
     if day == 30:   # 1 month achievement tkinter image
       achievementM()
     if day == 365:    # 1 year achievement tkinter image
