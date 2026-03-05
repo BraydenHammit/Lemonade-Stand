@@ -35,9 +35,9 @@ def achievementX():
 
 def achievementW():
     achievement1W = tk.Tk()
-    achievement1W.title("You lasted 7 days in Lemonade Stand")
+    achievement1W.title("1 Week of Lemonade Stand")
     achievement1W.geometry('216x288') 
-    image30 = tk.PhotoImage(file='achievements/achievement1W.png')
+    image30 = tk.PhotoImage(file='achievements/achievementW.png')
     label30 = tk.Label(achievement1W, image=image30)
     label30.place(x=0, y=0, relwidth=1, relheight=1)
 

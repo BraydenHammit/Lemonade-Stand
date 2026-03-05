@@ -139,6 +139,9 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
     if day == 7:   # 1 week achievement tkinter image
       achievementW()
+      if not loopYN('w'):
+        death = 'week quit'
+        break
     if day == 30:   # 1 month achievement tkinter image
       achievementM()
     if day == 365:    # 1 year achievement tkinter image
@@ -146,6 +149,9 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
     if inventory["money"] >= 50000 and not FT50k:   # 50k money achievement tkinter image
       achievementX()
       FT50k = True
+      if not loopYN('50'):
+        death = '50k quit'
+        break
   
     day += 1         #add a day to count at end of each day
     inventory["permit"] -= 1.  #permit countdown, -1 each day
