@@ -5,6 +5,13 @@ def displayInv(inventory,recipe,cupsMade,profits,cupsBought,moneySpent,endOfDay,
     print('Sugar:',inventory["sugar"])
     print('Water:',inventory["water"])
     print('Cups:',inventory["cups"])
+    if inventory["permit"] == 0:
+        print("Your permit is expired!")
+    elif inventory["permit"] == 1:
+        print('Your permit expires tommorow!')
+    else:
+        print(f'Permit exipiration: {int(inventory["permit"])} days')
+        
     if endOfDay:                # only print this if it's the end of day report
         print(f'Recipe:\n  Lemons - {recipe["lemons"]}\n  Ice - {recipe["ice"]}\n  Sugar - {recipe["sugar"]}\n  Water - {recipe["water"]}\n  Cost - {recipe["cost"]}')
         print('Cups made:',cupsMade)
@@ -16,9 +23,4 @@ def displayInv(inventory,recipe,cupsMade,profits,cupsBought,moneySpent,endOfDay,
         else:
             print('Daily taxes:',taxes)
         print('Total profit:',round(profits-moneySpent-taxes,2))
-        if inventory["permit"] == 0:
-            print("Your permit is expired!")
-        elif inventory["permit"] == 1:
-            print('Your permit expires tommorow!')
-        else:
-            print(f'Permit exipiration: {int(inventory["permit"])} days')
+        
