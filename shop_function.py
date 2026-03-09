@@ -57,7 +57,7 @@ def purchasing(inventory):
 
 
         
-        print(f'Money: {inventory["money"]} \nLemons: {inventory["lemons"]} \nIce: {inventory["ice"]} \nSugar: {inventory["sugar"]} \nWater: {inventory["water"]} \nCups: {inventory["cups"]}')               #print inventory between purchases
+        print(f'Money: {inventory["money"]} \nLemons: {inventory["lemons"]} \nIce: {inventory["ice"]} \nSugar: {inventory["sugar"]} \nWater: {inventory["water"]} \nCups: {inventory["cups"]}\nPermit: {inventory["permit"]} days left')               #print inventory between purchases
     
     return inventory
 
