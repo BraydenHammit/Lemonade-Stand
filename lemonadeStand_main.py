@@ -25,7 +25,7 @@ inventory = {"money": difficulty, # define starting inventory
              "sugar" : 0,
              "cups": 0,
              "water": 0,
-             "permit": 7}
+             "permit": 3} # 3 days of permit to start
 
 recipe = {"cost": 0.01, # define base empty recipe
           "ice" : 0,
@@ -43,7 +43,7 @@ while inventory["money"] > 0:       #game loop, each repitition is a day
 
 
     print("========================================= COSTS =========================================")
-    print('Lemons - 0.75\nIce - 0.50\nSugar - 0.25\nWater - 0.01\nCups - 0.10\nPermit Renewal - 5.00')
+    print('Lemons - 0.75\nIce - 0.50\nSugar - 0.25\nWater - 0.01 (for 100)\nCups - 0.10\nPermit Renewal - 5.00')
 
 
 
