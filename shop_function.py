@@ -25,7 +25,10 @@ def purchasing(inventory):
             valid = False
             while not valid:
                 try:
-                    purchaseAmount = int(input('How many/much would you like to buy? '))
+                    if purchaseType == 'w':
+                        purchaseAmount = int(input('How much would you like to buy? (x100) '))
+                    else:
+                        purchaseAmount = int(input('How many/much would you like to buy? '))
                     valid = True
                         
                 except ValueError:    
