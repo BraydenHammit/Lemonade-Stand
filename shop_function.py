@@ -29,7 +29,14 @@ def purchasing(inventory):
                         purchaseAmount = int(input('How much would you like to buy? (x100) '))
                     else:
                         purchaseAmount = int(input('How many/much would you like to buy? '))
-                    valid = True
+
+                        
+                    if purchaseAmount > 0:
+                        valid = True
+                    else:
+                        print("Invalid answer!")
+                        valid = False
+
                         
                 except ValueError:    
                     print("Invalid answer!")
